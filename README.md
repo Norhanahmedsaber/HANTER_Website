@@ -29,3 +29,5 @@ Contributions are welcome! Please read the [CONTRIBUTING.md](CONTRIBUTING.md) fi
 | ------------- | ------------- |
 | <span style="color: blue;">Blue Text</span>   | <span style="background-color: yellow;">Yellow Background</span> |
 
+:red_circle:
+
