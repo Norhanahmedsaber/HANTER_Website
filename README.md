@@ -24,8 +24,6 @@ To install this project, follow these steps:
 
 Contributions are welcome! Please read the [CONTRIBUTING.md](CONTRIBUTING.md) file for details on how to contribute to this project.
 
-<span style="color: blue;">This text is blue</span>
-<span style="background-color: yellow;">This text has a yellow background</span>
 
 
 
@@ -35,4 +33,8 @@ Contributions are welcome! Please read the [CONTRIBUTING.md](CONTRIBUTING.md) fi
 | <span style="color: blue;">Blue Text</span>   | <span style="background-color: yellow;">Yellow Background</span> |
 
 :red_circle:
+
+
+<span style="color: blue;">This text is blue</span>
+<span style="background-color: yellow;">This text has a yellow background</span>
 
