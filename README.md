@@ -24,6 +24,10 @@ To install this project, follow these steps:
 
 Contributions are welcome! Please read the [CONTRIBUTING.md](CONTRIBUTING.md) file for details on how to contribute to this project.
 
+<span style="color: blue;">This text is blue</span>
+<span style="background-color: yellow;">This text has a yellow background</span>
+
+
 
 
 | Header 1      | Header 2      |
