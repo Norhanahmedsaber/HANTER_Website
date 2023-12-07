@@ -23,4 +23,7 @@ To install this project, follow these steps:
 
 Contributions are welcome! Please read the [CONTRIBUTING.md](CONTRIBUTING.md) file for details on how to contribute to this project.
 
-
+```javascript
+// This is JavaScript code
+const variable = 'Hello, World!';
+console.log(variable);
