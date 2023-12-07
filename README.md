@@ -18,3 +18,6 @@ To install this project, follow these steps:
 2. toka
    ```bash
    cd your-project
+## Contributing
+
+Contributions are welcome! Please read the [CONTRIBUTING.md](CONTRIBUTING.md) file for details on how to contribute to this project.
