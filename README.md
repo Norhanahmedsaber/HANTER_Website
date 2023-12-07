@@ -27,3 +27,8 @@ Contributions are welcome! Please read the [CONTRIBUTING.md](CONTRIBUTING.md) fi
 // This is JavaScript code
 const variable = 'Hello, World!';
 console.log(variable);
+
+| Header 1      | Header 2      |
+| ------------- | ------------- |
+| <span style="color: blue;">Blue Text</span>   | <span style="background-color: yellow;">Yellow Background</span> |
+
