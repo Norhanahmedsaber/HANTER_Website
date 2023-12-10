@@ -1,20 +1,21 @@
 import React, { useState } from "react";
-import Anas from "./anas";
 import Button from "../../Components/Button";
+import LoginForm from "./LoginForm";
 export default function Login() {
-    const [counter, setCounter] = useState(0)
+    const [email,setEmail] = useState("")
+    const [password,setPassword]=useState("")
     function anasFetch() {
-        console.log(counter)
+        console.log(email,password)
     }
     return (
         <div className="flex flex-col justify-center items-center h-screen">
-            <Button 
-                counter={counter} 
-                setCounter={setCounter} 
-            />
-            <div onClick={anasFetch} className="hover:cursor-pointer">
-                Send
-            </div>
+            <LoginForm
+                email={email}
+                setEmail={setEmail} 
+                password={password} 
+                setPassword={setPassword} 
+                setDone={anasFetch}
+                />
         </div>
     )
 }
