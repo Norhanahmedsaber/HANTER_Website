@@ -17,7 +17,7 @@ export default function Router() {
             element: <Login />
         },
         {
-            path: '/SignUp',
+            path: '/signup',
             element: <SignUp />
         }
     ])
