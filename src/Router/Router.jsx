@@ -8,6 +8,7 @@ import Login from '../Pages/Login/Login'
 import SignUp from '../Pages/SignUp/SignUp'
 import Home from '../Pages/Home/Home'
 import Parent from '../playground/Parent'
+import NotFound from '../Pages/NotFound/NotFound'
 export default function Router() {
     const router = createBrowserRouter([
         {
@@ -25,6 +26,10 @@ export default function Router() {
         {
             path: '/home',
             element: <Home />
+        },
+        {
+            path: '/*',
+            element: <NotFound />
         }
     ])
 

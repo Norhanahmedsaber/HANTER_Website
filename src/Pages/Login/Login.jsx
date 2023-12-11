@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Button from "../../Components/Button";
+import Button from "../../Components/NavigationButton";
 import LoginForm from "./LoginForm";
 import Footer from "../../Components/Footer";
 import Logo from "../../Components/Logo"
