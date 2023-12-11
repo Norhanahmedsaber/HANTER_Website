@@ -9,6 +9,8 @@ export default function SignupForm({
     setEmail, 
     password, 
     setPassword,
+    githubAccount,
+    setGithubAccount,
     submitHandler }) {
   return (
     <div className='flex flex-col items-center justify-center'>
@@ -16,7 +18,8 @@ export default function SignupForm({
         <Field label={"Last Name"} value={lastName} setValue={setLastName}/>
         <Field label={"Email"} value={email} setValue={setEmail}/>
         <Field label={"Password"} value={password} setValue={setPassword}/>
-        <div className='border-2 , border-emerald-950 rounded-md w-[70%] text-center' onClick={submitHandler}>SignUp</div>
+        <Field label={"Github Account"} value={githubAccount} setValue={setGithubAccount}/>
+        <div className='border-2 , border-emerald-950 rounded-md w-[70%] text-center cursor-pointer' onClick={submitHandler}>SignUp</div>
 
     </div>
   )
