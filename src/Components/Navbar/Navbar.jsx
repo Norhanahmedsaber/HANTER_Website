@@ -12,9 +12,11 @@ function Navbar({isAuth}) {
             <img src={'../../../public/logo.png'} className='rounded-full'/>
         </div>
             <div className='flex justify-center items-center mr-10'>
-                <Item text={"Team"} path={'\parent'}/>
-                <Item text={"Docs"} path={'\parent'}/>
-                <Item text={"Playground"} path={'\parent'}/>
+                <Item text={"Team"} path={'/parent'}/>
+                <Item text={"Docs"} path={'/parent'}/>
+                <Item text={"Playground"} path={'/parent'}/>
+                <Item text={"Log in"} path={'/login'}/>
+                <Item text={"Sign up"} path={'/signup'}/>
                 {!isAuth?(
                     <div className='flex justify-center items-center'>
                         <Item text={"Log in"} path={'/login'}/>
