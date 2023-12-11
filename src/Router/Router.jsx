@@ -6,6 +6,7 @@ import {
 import App from '../App'
 import Login from '../Pages/Login/Login'
 import SignUp from '../Pages/SignUp/SignUp'
+import Home from '../Pages/Home/Home'
 import Parent from '../playground/Parent'
 export default function Router() {
     const router = createBrowserRouter([
@@ -20,6 +21,10 @@ export default function Router() {
         {
             path: '/signup',
             element: <SignUp />
+        },
+        {
+            path: '/home',
+            element: <Home />
         }
     ])
 
