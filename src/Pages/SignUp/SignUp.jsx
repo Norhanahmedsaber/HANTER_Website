@@ -4,6 +4,7 @@ import Logo from '../../Components/Logo'
 import Footer from '../../Components/Footer'
 import config from '../../../config'
 import { useNavigate } from "react-router-dom";
+import cookie from 'js-cookie'
 
 export default function SignUp() {
   const [firstName , setFirstName]= useState("")
@@ -30,9 +31,10 @@ export default function SignUp() {
         .then((result)=>{
           if(result.message)
           { 
-            console.log(result.message)
             setError(result.message)
           }else{
+            const token = result.token
+            cookie.set('token' , token , {expires:10 , secure:true})
             navigate("/")
           }
     })
