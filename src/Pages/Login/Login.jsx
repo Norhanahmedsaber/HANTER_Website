@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Anas from "./anas";
 import Button from "../../Components/Button";
 export default function Login() {
     const [counter, setCounter] = useState(0)
