@@ -1,15 +1,26 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Button from "../../Components/Button";
 import LoginForm from "./LoginForm";
 import Footer from "../../Components/Footer";
 import Logo from "../../Components/Logo"
 import config from "../../../config";
 import { useNavigate } from "react-router-dom";
+import Cookies from "js-cookie";
 export default function Login() {
     const [email,setEmail] = useState("")
     const [password,setPassword]=useState("")
     const [error, setError] = useState("")
     const nav = useNavigate()
+    
+    useEffect(()=>{
+        if(Cookies.get('token'))
+        {
+            nav('/')
+            nav(0)
+        }else{
+            nav('/login')
+        }
+    } , [])
     function handleLogin() {
         fetch(config.BASE_URL+'/login',{
             method:"POST",
@@ -25,6 +36,8 @@ export default function Login() {
             if(result.message){
                 setError(result.message)
             }else {
+                const token = result.token
+                Cookies.set('token' , token , {expires:10 , secure:true})
                 nav('/')
             }
         })

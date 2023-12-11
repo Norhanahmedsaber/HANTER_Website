@@ -12,7 +12,7 @@ export default function Router() {
     const router = createBrowserRouter([
         {
             path: '/',
-            element: <Parent />,
+            element: <App />,
         },
         {
             path: '/login',
