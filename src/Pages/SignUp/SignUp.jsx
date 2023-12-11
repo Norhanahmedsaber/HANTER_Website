@@ -1,10 +1,10 @@
-import React, { useState } from 'react'
+import React, { useEffect , useState } from 'react'
 import SignupForm from './SignupForm'
 import Logo from '../../Components/Logo'
 import Footer from '../../Components/Footer'
 import config from '../../../config'
 import { useNavigate } from "react-router-dom";
-import cookie from 'js-cookie'
+import Cookies from 'js-cookie'
 
 export default function SignUp() {
   const [firstName , setFirstName]= useState("")
@@ -14,6 +14,15 @@ export default function SignUp() {
   const [githubAccount , setGithubAccount] = useState("")
   const [error, setError] = useState("")
   const navigate = useNavigate()
+  useEffect(()=>{
+    if(Cookies.get('token'))
+      {
+          navigate('/')
+          navigate(0)
+      }else{
+          navigate('/signup')
+      }
+  }, [])
   function submitHandler() {
       fetch(config.BASE_URL+'/signup',{
           method:"POST",

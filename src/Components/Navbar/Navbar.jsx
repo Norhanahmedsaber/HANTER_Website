@@ -1,9 +1,11 @@
 import React from 'react'
 import Logo from "../../Components/Logo"
 import Item from './Item'
+import Cookies from 'js-cookie'
 
 
-function Navbar() {
+
+function Navbar({isAuth}) {
     return (
         <div className="flex text-white items-center justify-between border h-[10%]">
         <div className='w-[5%] rounded-full ml-20'>
@@ -15,6 +17,18 @@ function Navbar() {
                 <Item text={"Playground"} path={'/parent'}/>
                 <Item text={"Log in"} path={'/login'}/>
                 <Item text={"Sign up"} path={'/signup'}/>
+                {!isAuth?(
+                    <div className='flex justify-center items-center'>
+                        <Item text={"Log in"} path={'/login'}/>
+                        <Item text={"Sign up"} path={'/signup'}/>
+                    </div>
+                ):(
+                    <div onClick={()=>{
+                        Cookies.remove('token')
+                    }}> 
+                        <Item text={"Logout"} path={0}></Item>
+                    </div>
+                )}
             </div>
         </div>
     )
