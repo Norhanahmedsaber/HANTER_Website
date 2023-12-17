@@ -14,7 +14,7 @@ export default function Home() {
   
   return (
     <div className='h-screen w-screen'>
-      <Navbar isAuth={isAuth} />
+      <Navbar isAuth={isAuth} /> 
     </div>
   )
 }
