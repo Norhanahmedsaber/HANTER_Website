@@ -42,7 +42,7 @@ export default function Router() {
             element: <NewRule />
         },
         {
-            path: '/rule',
+            path: '/rule/:id',
             element: <ViewRule />
         },
         {
