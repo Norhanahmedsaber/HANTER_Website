@@ -5,22 +5,21 @@ import Button from './Button'
 import config from '../../../config'
 import { useParams } from 'react-router-dom'
 import Cookies from 'js-cookie'
+import YamlViewer from './YamlViewer'
 
 
 export default function ViewRule() {
   const [name, setName] = useState("")
+  const [uuid, setUuid] = useState("")
   const [content, setContent] = useState("")
   const params = useParams()
   function deleteAction() {
-    fetch(config.BASE_URL + '/rules',{
+    fetch(config.BASE_URL + '/rules/' + uuid,{
       method:"DELETE",
       headers:{
         "Content-Type":"application/json",
-        "Authorization":"Bearer "+Cookies.get('token')
-      } ,
-      body:JSON.stringify({
-        name
-      })
+        "Authorization":"Bearer " + Cookies.get('token')
+      }
     }).then(response=>response.json())
     .then((result)=>{
       if(result.message){
@@ -43,6 +42,7 @@ export default function ViewRule() {
         // to do
       } else {
         setName(result.name)
+        setUuid(result.uuid)
         setContent(result.value )
   }})
 }
@@ -50,20 +50,19 @@ export default function ViewRule() {
     fetchRuleData()
   }, [])
   return (
-    <div className='w-scree h-screen flex flex-col border border-black '>
+    <div className='w-scree h-screen flex flex-col'>
       <Navbar/>
-      <div className='w-full h-[90%] flex flex-col justify-center items-center border-2 border-red-500'>
-        <div className='w-[40%] h-[80%] border-2 border-green-300'>
-          <div className='w-full h-[30%] flex flex-row border-2 border-violet-600'>
-            <div className='w-[40%] h-full border border-rose-800 text-center items-center'>{name}</div>
-            <div className='w-[60%] h-full border border-yellow-400 flex justify-end items-center'>
-              <Button name={"anas"} action={deleteAction} />
-              <div className='btn-view-rule'>Delete</div>
+      <div className='w-full h-[90%] flex flex-col justify-center items-center'>
+        <div className='w-[40%] h-[80%] border-2 rounded-lg p-2'>
+          <div className='w-full h-[30%] flex flex-row'>
+            <div className='w-[40%] h-full flex justify-center items-center text-xl font-bold'>{name}</div>
+            <div className='w-[60%] h-full flex justify-end items-center'>
+              <Button name={"delete"} action={deleteAction} />
             </div>
           </div>
-          <div className='w-full h-[70%] flex flex-row border-2 border-pink-600'>{content}</div>
-          <div className='w-full flex justify-end border-2 border-orange-500'>
-            <div className='w-20 h-14 flex justify-center items-center cursor-pointer rounded bg-teal-400 border border-teal-400 text-center'>Done</div>
+          <div className='w-full h-[70%] flex flex-row'><YamlViewer content={content} setContent={setContent} /></div>
+          <div className='w-full flex justify-end'>
+            <div className='w-20 h-14 flex justify-center items-center cursor-pointer rounded bg-teal-400 border  text-center'>Done</div>
           </div>
         </div>
       </div>
