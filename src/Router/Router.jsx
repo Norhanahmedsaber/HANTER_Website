@@ -3,11 +3,9 @@ import {
     createBrowserRouter,
     RouterProvider    
 } from 'react-router-dom'
-import App from '../App'
 import Login from '../Pages/Login/Login'
 import SignUp from '../Pages/SignUp/SignUp'
 import Home from '../Pages/Home/Home'
-import Parent from '../playground/Parent'
 import NotFound from '../Pages/NotFound/NotFound'
 import Profile from '../Pages/Profile/Profile'
 import Playground from '../Pages/Playground/Playground'
