@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Navbar from '../../Components/Navbar/Navbar'
 import UploadRule from '../../Modals/NewRule/UploadRule'
-
+import RuleForm from './RuleForm'
 export default function NewRule() {
   const [uploadModalOpen, setUploadModalOpen] = useState(false)
   return (
@@ -20,7 +20,9 @@ export default function NewRule() {
               }}>Upload</div>
             </div>
             <div className='w-full h-[5%]  my-1  text-center'>Or Create Your a New One Using the Editor Below</div>
-            <div className='w-full h-[70%]  my-1'>toka</div>
+            <div className='w-full h-[70%]  my-1'>
+              <RuleForm />
+            </div>
         </div>
     </div>
     </div>
