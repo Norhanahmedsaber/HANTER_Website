@@ -25,7 +25,7 @@ export default function Rules() {
   return (
     <div className='w-full h-full flex flex-col items-center p-4'>
         {
-            rules.map((rule)=><Rule name={rule.name} />)
+            rules.map((rule)=><Rule name={rule.name} createdBy={rule.createdBy} />)
         }
     </div>
   )
