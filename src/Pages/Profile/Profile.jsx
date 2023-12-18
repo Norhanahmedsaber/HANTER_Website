@@ -11,6 +11,10 @@ export default function Profile() {
   const [user , setUser] = useState({})
   const [selectedTab , setSelectedTab] = useState(1)
   useEffect(()=>{
+    if(!Cookies.get('token'))
+    {
+      nav('/login')
+    }
     document.getElementById('tab-1').classList.add('selectedTab')
     fetch(config.BASE_URL+'/profile',{
       method:"GET",
