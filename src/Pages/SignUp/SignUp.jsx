@@ -43,8 +43,8 @@ export default function SignUp() {
             setError(result.message)
           }else{
             const token = result.token
-            cookie.set('token' , token , {expires:10 , secure:true})
-            navigate("/")
+            Cookies.set('token' , token , {expires:10 , secure:true})
+            navigate("/Profile")
           }
     })
   }
