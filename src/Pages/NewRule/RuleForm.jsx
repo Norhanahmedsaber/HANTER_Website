@@ -1,12 +1,17 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import YamlViewer from './YamlViewer'
 import config from "../../../config";
 import Cookies from 'js-cookie';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 export default function RuleForm() {
+    const state = useLocation() 
     const [content , setContent] = useState("")
     const [ruleName , setRuleName] = useState("")
+    useEffect(()=>{
+        console.log(state)
+        setContent(state.state.content)
+    }, [])
     const nav = useNavigate()
     function createRuleHandler(){
         fetch(config.BASE_URL+'/rule',{
