@@ -1,6 +1,6 @@
 import React from 'react'
+import RuleForm from './RuleForm'
 import Navbar from '../../Components/Navbar/Navbar'
-
 export default function NewRule() {
   return (
     <div className='h-screen w-screen flex flex-col justify-center items-center'>
@@ -9,7 +9,7 @@ export default function NewRule() {
         <div className='w-full h-[80%] flex flex-col justify-center items-center '>
             <div className='w-full h-[10%] flex my-1 '>amas</div>
             <div className='w-full h-[5%]  my-1  text-center'>OR</div>
-            <div className='w-full h-[70%]  my-1'>toka</div>
+             <RuleForm />
         </div>
     </div>
     </div>
