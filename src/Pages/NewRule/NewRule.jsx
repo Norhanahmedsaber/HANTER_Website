@@ -2,7 +2,9 @@ import React, { useState } from 'react'
 import Navbar from '../../Components/Navbar/Navbar'
 import UploadRule from '../../Modals/NewRule/UploadRule'
 import RuleForm from './RuleForm'
+import { useLocation } from 'react-router-dom'
 export default function NewRule() {
+  
   const [uploadModalOpen, setUploadModalOpen] = useState(false)
   return (
     <div className='h-screen w-screen flex flex-col justify-center items-center'>
