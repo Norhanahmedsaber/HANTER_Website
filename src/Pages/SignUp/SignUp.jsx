@@ -12,7 +12,7 @@ export default function SignUp() {
   const [email , setEmail] = useState("")
   const [password ,setPassword] = useState("")
   const [githubAccount , setGithubAccount] = useState("")
-  const [error, setError] = useState("")
+  const [error, setError] = useState("the Email and Password don’t match")
   const navigate = useNavigate()
   useEffect(()=>{
     if(Cookies.get('token'))
@@ -49,10 +49,11 @@ export default function SignUp() {
     })
   }
   return (
-    <div className='flex flex-col items-center justify-center h-screen'>
-      <Logo path={"../../../../public/logo.png"}/>
-      <div className="w-[22.5rem] mt-[1.37rem] text-[#E10808] text-[0.625rem]">{error}</div>
-      <SignupForm 
+    <div className='flex flex-col items-center justify-start h-screen'>
+        <img src={"../../../../public/logo.png"} className='w-[5.875rem] h-[5.6875rem] mt-[1.25rem]'/>
+        <div className='text-[#030303] text-[1.6875rem]'> Sign up to HANTER </div>
+        <div className='text-[#E10808] text-[0.625rem] w-[22.5rem] mt-[2.25rem]'>{error}</div>
+      <SignupForm
         firstName={firstName} 
         setFirstName={setFirstName}
         lastName={lastName}
