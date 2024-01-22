@@ -44,8 +44,9 @@ export default function Login() {
     }
     return (
         <div className="flex flex-col justify-center items-center h-screen">
-            <Logo path={"../../../public/logo.png"}/>
-            <div>{error}</div>
+            <img src="../../../public/logo.png" className= "w-[5.875rem] h-[5.6875rem]" />
+            <div className="text-[1.6875rem]">Sign in to HANTER</div>
+            <div className="w-[22.5rem] mt-[1.37rem] text-[#E10808] text-[0.625rem]">{error}</div>
             <LoginForm
                 email={email}
                 setEmail={setEmail} 
@@ -53,10 +54,11 @@ export default function Login() {
                 setPassword={setPassword} 
                 setDone={handleLogin}
             />
+
             <Footer
-            text={"Doesnot have an account ?"}
+            text={"New to HANTER?"}
             path={'/signup'}
-            pressableText={"Sign Up"}
+            pressableText={"Create an account"}
             />    
         </div>
 

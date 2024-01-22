@@ -5,5 +5,14 @@
 @layer components {
     .trans {
         @apply transition-all ease-linear duration-200
-      }
+    }
+    .list-rules-tab {
+        @apply w-1/2 h-full flex justify-center items-center border rounded-t-lg bg-slate-50 hover:bg-slate-100 trans hover:cursor-pointer text-sm
+    }
+    .list-rules-tab-selected {
+        @apply w-1/2 h-full flex justify-center items-center border border-b-0 rounded-t-lg bg-slate-200 trans text-sm
+    }
+    .list-rules-rule {
+        @apply w-[90%] h-8 flex justify-center items-center rounded-md my-0.5 border border-blue-300 cursor-pointer hover:bg-blue-300 trans
+    }
 }
