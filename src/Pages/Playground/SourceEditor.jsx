@@ -6,7 +6,7 @@ export default function SourceEditor() {
   return (
     <div>
       <div className='flex flex-col justify-center '>
-      <CodeViewer/>
+        <CodeViewer/>
       </div>
     </div>
   )

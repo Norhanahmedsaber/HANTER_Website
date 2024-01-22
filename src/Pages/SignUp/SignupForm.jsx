@@ -13,7 +13,7 @@ export default function SignupForm({
     setGithubAccount,
     submitHandler }) {
   return (
-    <div className='flex flex-col items-center justify-center'>
+    <div className='flex flex-col items-center justify-center mt-[0.31rem]'>
         <Field label={"First Name"} value={firstName} setValue={setFirstName}/>
         <Field label={"Last Name"} value={lastName} setValue={setLastName}/>
         <Field label={"Email"} value={email} setValue={setEmail}/>
