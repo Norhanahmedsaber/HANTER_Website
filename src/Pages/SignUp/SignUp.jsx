@@ -51,6 +51,7 @@ export default function SignUp() {
   return (
     <div className='flex flex-col items-center justify-center h-screen'>
       <Logo path={"../../../../public/logo.png"}/>
+      <div className="w-[22.5rem] mt-[1.37rem] text-[#E10808] text-[0.625rem]">{error}</div>
       <SignupForm 
         firstName={firstName} 
         setFirstName={setFirstName}

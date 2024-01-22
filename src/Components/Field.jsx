@@ -6,7 +6,7 @@ function Field({label, value, setValue, className}) {
             <div className='w-full text-[0.9375rem]'>
                 {label}
             </div>
-            <input className='w-full h-[1.75rem] border border-[#E3E8EC] rounded-[0.3125rem] p-2'
+            <input className='w-full h-[1.75rem] border border-[#E3E8EC] rounded-[0.3125rem] pl-2 text-[0.80rem]'
                 onChange={(e)=>{
                     setValue(e.currentTarget.value)
                 }}

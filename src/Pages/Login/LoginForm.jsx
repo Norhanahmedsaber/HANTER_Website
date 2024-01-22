@@ -12,7 +12,7 @@ function LoginForm({email,setEmail,password,setPassword,setDone}) {
                 <div className='w-full text-[0.9375rem]'>
                     Password
                 </div>
-                <input className='w-full h-[1.75rem] border border-[#E3E8EC] rounded-[0.3125rem] p-2'
+                <input className='w-full h-[1.75rem] border border-[#E3E8EC] rounded-[0.3125rem] pl-2'
                     onChange={(e)=>{
                         setPassword(e.currentTarget.value)
                     }}
