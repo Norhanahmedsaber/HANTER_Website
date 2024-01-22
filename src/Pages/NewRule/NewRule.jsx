@@ -2,9 +2,6 @@
 import React, { useState } from 'react'
 import Navbar from '../../Components/Navbar/Navbar'
 import UploadRule from '../../Modals/NewRule/UploadRule'
-import React from 'react'
-import RuleForm from './RuleForm'
-import Navbar from '../../Components/Navbar/Navbar'
 import RuleForm from './RuleForm'
 import { useLocation } from 'react-router-dom'
 export default function NewRule() {

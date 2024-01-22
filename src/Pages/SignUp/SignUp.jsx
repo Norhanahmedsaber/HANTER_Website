@@ -52,7 +52,7 @@ export default function SignUp() {
     <div className='flex flex-col items-center justify-start h-screen'>
         <img src={"../../../../public/logo.png"} className='w-[5.875rem] h-[5.6875rem] mt-[1.25rem]'/>
         <div className='text-[#030303] text-[1.6875rem]'> Sign up to HANTER </div>
-        <div className='text-[#E10808] text-[0.625rem] w-[22.5rem] mt-[2.25rem]'>{error}</div>
+        <div className='text-[#E10808] text-[0.625rem] w-[22.5rem] mt-[1.5rem]'>{error}</div>
       <SignupForm
         firstName={firstName} 
         setFirstName={setFirstName}
@@ -62,8 +62,6 @@ export default function SignUp() {
         setEmail={setEmail}
         password={password}
         setPassword={setPassword}
-        githubAccount={githubAccount}
-        setGithubAccount={setGithubAccount}
         submitHandler={submitHandler}
       ></SignupForm>
       <Footer text={"Already Have an Account?"} pressableText={"Log in"} path={"/login"} />
