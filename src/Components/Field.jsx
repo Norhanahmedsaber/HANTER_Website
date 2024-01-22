@@ -2,11 +2,11 @@ import React from 'react'
 
 function Field({label, value, setValue, className}) {
     return (
-        <div className='flex w-2/3 justify-center items-center p-2'>
-            <div className='w-3/6'>
+        <div className='flex flex-col w-[18.6875rem] justify-center items-start'>
+            <div className='w-full text-[0.9375rem]'>
                 {label}
             </div>
-            <input className='w-3/6 border-2 border-black rounded-md p-1'
+            <input className='w-full h-[1.75rem] border border-[#E3E8EC] rounded-[0.3125rem] p-2'
                 onChange={(e)=>{
                     setValue(e.currentTarget.value)
                 }}
