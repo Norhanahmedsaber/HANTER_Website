@@ -1,6 +1,10 @@
+
 import React, { useState } from 'react'
 import Navbar from '../../Components/Navbar/Navbar'
 import UploadRule from '../../Modals/NewRule/UploadRule'
+import React from 'react'
+import RuleForm from './RuleForm'
+import Navbar from '../../Components/Navbar/Navbar'
 import RuleForm from './RuleForm'
 import { useLocation } from 'react-router-dom'
 export default function NewRule() {
@@ -22,6 +26,9 @@ export default function NewRule() {
               }}>Upload</div>
             </div>
             <div className='w-full h-[5%]  my-1  text-center'>Or Create Your a New One Using the Editor Below</div>
+            <div className='w-full h-[10%] flex my-1 '>amas</div>
+            <div className='w-full h-[5%]  my-1  text-center'>OR</div>
+             <RuleForm />
             <div className='w-full h-[70%]  my-1'>
               <RuleForm />
             </div>
