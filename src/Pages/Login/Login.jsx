@@ -10,6 +10,7 @@ export default function Login() {
     const [email,setEmail] = useState("")
     const [password,setPassword]=useState("")
     const [error, setError] = useState("")
+    const [loading, setLoading] = useState("")
     const nav = useNavigate()
     
     useEffect(()=>{
@@ -22,25 +23,29 @@ export default function Login() {
         }
     } , [])
     function handleLogin() {
-        fetch(config.BASE_URL+'/login',{
-            method:"POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body:JSON.stringify({
-                email,
-                password
+        if(!loading) {
+            setLoading(true)
+            fetch(config.BASE_URL+'/login',{
+                method:"POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body:JSON.stringify({
+                    email,
+                    password
+                })
+            }).then(response => response.json())
+            .then((result)=>{
+                if(result.message){
+                    setError(result.message)
+                }else {
+                    const token = result.token
+                    Cookies.set('token' , token , {expires:10 , secure:true})
+                    nav('/')
+                }
+                setLoading(false)
             })
-        }).then(response => response.json())
-        .then((result)=>{
-            if(result.message){
-                setError(result.message)
-            }else {
-                const token = result.token
-                Cookies.set('token' , token , {expires:10 , secure:true})
-                nav('/')
-            }
-        })
+        }
     }
     return (
         <div className="flex flex-col justify-center items-center h-screen">
@@ -53,6 +58,7 @@ export default function Login() {
                 password={password} 
                 setPassword={setPassword} 
                 setDone={handleLogin}
+                loading={loading}
             />
 
             <Footer
