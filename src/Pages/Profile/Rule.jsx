@@ -2,7 +2,6 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import config from '../../../config'
 import Cookies from 'js-cookie'
-import { Result } from 'postcss'
 
 export default function Rule({name , id, uuid}) {
   const nav = useNavigate()
@@ -18,7 +17,7 @@ export default function Rule({name , id, uuid}) {
       .then((result)=>{
         if(result.message)
         {
-          nav(0)
+          // nav(0)
           console.log(result.message)
         }else{
           console.log('ERROORRRR')

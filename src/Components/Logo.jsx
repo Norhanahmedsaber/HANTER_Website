@@ -3,7 +3,7 @@ import React from 'react'
 export default function 
 Logo({path}) {
   return (
-    <div className='w-[10%] rounded-full m-3'>
+    <div className='w-[8.38rem] h-[1.25rem] '>
         <img src={path} className='rounded-full'/>
     </div>
   )
