@@ -7,7 +7,9 @@ export default {
   theme: {
     extend: {
       colors:{
-        "primary":"#6160B8"
+        "primary":"#6160B8",
+        "secondary":"#0B8D66",
+        "text":"#FFF"
       },
       fontFamily:{
         "Jomolhari": ["Jomolhari", "sans-serif"],
