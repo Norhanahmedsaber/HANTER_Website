@@ -4,10 +4,7 @@ import Projectform from '../Projects/Projectform'
 export default function NewProject() {
   return (
     <div className='flex justify-start w-screen h-screen items-start border border-red-500'>
-        <Sidebar />
-        <Projectform />
-        
-
+        anas
       </div>
   )
 }
