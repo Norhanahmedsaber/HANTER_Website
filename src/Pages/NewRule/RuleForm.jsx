@@ -9,7 +9,6 @@ export default function RuleForm() {
     const [content , setContent] = useState("")
     const [ruleName , setRuleName] = useState("")
     useEffect(()=>{
-        console.log(state)
         setContent(state.content)
     }, [])
     const nav = useNavigate()
@@ -35,6 +34,9 @@ export default function RuleForm() {
             }
           })  
     }
+    function changeContent(cont) {
+        setContent(cont.text)
+    }
   return (
     <div className='w-full h-full flex flex-col justify-center items-center border border-red-400'>
         <div className='flex w-full justify-start p-2'>
@@ -44,7 +46,7 @@ export default function RuleForm() {
                 setRuleName(e.currentTarget.value)
             }}/>
         </div>
-        <YamlViewer content={content} setContent={setContent}/>
+        <YamlViewer content={content} setContent={changeContent}/>
         <div className=' bg-blue-500 flex justify-center w-[10%] rounded cursor-pointer' onClick={()=>{
             createRuleHandler()
         }}>Done</div>

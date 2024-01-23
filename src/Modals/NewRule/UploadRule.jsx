@@ -56,44 +56,51 @@ export default function UploadRule({ isOpen, setIsOpen }) {
         <Modal
             isOpen = {isOpen}
             appElement={document.getElementById('roor')}
-            className={'shadow-xl shadow-slate-300 bg-white h-fit w-1/3 left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 absolute flex flex-col justify-between items-center border p-5 rounded-md bg-secondary-2 text-black'}
+            className={'shadow-xl shadow-slate-300 bg-[#EEE] w-[71.875rem] h-[37.5rem] left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 absolute flex flex-col justify-between items-center border p-5 rounded-md bg-secondary-2 text-black'}
             shouldFocusAfterRender={false}
             onRequestClose={close}
             closeTimeoutMS={200}
         >
-            <div><span className='text-sm ml-1 text-red-600 font-bold'>{error}</span></div>
-            <div className='w-full'>
-            <div><label htmlFor="Res-Name" id='Res-Name-Lable' className='text-sm ml-1'>Name</label></div>
-            <input
-                id='Res-Name'
-                className='text-sm w-full my-1 h-8 py-1 px-2 border border-primary-1 rounded-md bg-secondary-3 '
-                type='text'
-                onChange={(e) => {
-                    setName(e.target.value)
-                }}
-            />
+            <div className='mt-[3rem] text-[2.1875rem]'>Upload Rule</div>
+            <div className='text-sm ml-4 text-[#E10808] w-[55.875rem]'>{error}</div>
+            <div className='h-[4.3125rem] flex'>
+                <div className='w-[14.9375rem] bg-[#8F8C8C] rounded-l-[1.25rem] flex justify-center items-center text-white text-[2.5rem]'>Name</div>
+                <input
+                    id='Res-Name'
+                    className='w-[40.9375rem] bg-white rounded-r-[1.25rem] pl-4 text-[1.875rem]'
+                    type='text'
+                    onChange={(e) => {
+                        setName(e.target.value)
+                    }}
+                />
             </div>
-
-            <div className='w-full'>
+            <div className='h-[4.3125rem] flex mt-[4rem]'>
+                <div className='w-[14.9375rem] bg-[#8F8C8C] rounded-l-[1.25rem] flex justify-center items-center text-white text-[2.5rem]'>Upload File</div>
+                <div className='relative w-[40.9375rem] bg-white rounded-r-[1.25rem] pl-4 text-[1.875rem] flex justify-start items-center'>
+                    <div className='flex justify-start items-center'>{selectedFile?.name}</div>
+                    <label htmlFor='Res-Text' className='w-[3.125rem] h-[3.125rem] bg-[#8F8C8C] rounded-full absolute right-[1rem] top-[0.62rem] flex justify-center items-center cursor-pointer'>
+                        <img src="../../../public/upload.png" className='w-[2.5rem] h-[2.5rem]' alt="" />
+                    </label>
+                </div>
+            </div>
+            <div className='w-[55.875rem] h-[4.3125rem] bg-[#539A9F] mt-[4rem] rounded-[1.25rem] flex justify-center items-center text-white text-[2.5rem] cursor-pointer'
+                onClick={() => {
+                    if (name) {
+                        handleSubmission();
+                    }
+                    else {
+                        setError('Please provide a name for the rule to be created!')
+                    }
+                    }}>Save Rule</div>
+            
+            <div className='w-full hidden'>
             <div><label htmlFor="Res-Text" className='text-sm ml-1'>File</label></div>
-            <input id='Res-Text' className='resize-none text-sm w-full max-h-md my-1 h-16 py-1 px-2 border border-primary-1 rounded-md bg-secondary-3 '
+            <input id='Res-Text' className='resize-none text-sm w-full max-h-md my-1 h-2 py-1 px-2 border border-primary-1 rounded-md bg-secondary-3 '
                 type='file'
                 accept='.yml'
                 onChange={changeHandler} />
             </div>
 
-            <div className='w-full'>
-            <div className="w-full my-2 h-9 rounded-md border text-sm bg-blue-500 hover:bg-blue-800 trans flex justify-center items-center hover:cursor-pointer text-white"
-                onClick={() => {
-                if (name) {
-                    handleSubmission();
-                }
-                else {
-                    setError('Please provide a name for the rule to be created!')
-                }
-                }}
-            >Create Rule</div>
-            </div>
         </Modal>
     </div>
   )
