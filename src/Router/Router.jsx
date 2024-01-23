@@ -13,6 +13,7 @@ import NewRule from '../Pages/NewRule/NewRule'
 import ViewRule from '../Pages/ViewRule/ViewRule'
 import NewProject from '../Pages/NewProject/NewProject'
 import Reports from '../Pages/Reports/Reports'
+import { ServerDown } from '../Pages/ServerDown/ServerDown'
 export default function Router() {
     const router = createBrowserRouter([
         {
@@ -50,6 +51,10 @@ export default function Router() {
         {
             path: '/reports',
             element: <Reports />
+        },
+        {
+            path: '/server_error',
+            element: <ServerDown />
         },
         {
             path: '/*',
