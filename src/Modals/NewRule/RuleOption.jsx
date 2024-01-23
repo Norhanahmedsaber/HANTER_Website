@@ -37,7 +37,7 @@ function RuleOption({isOpen,setIsOpen}) {
                     close()
                     setUploadModalOpen(true)
                    }}>
-                   <img  className='w-[6.25rem] h-[6.25rem]' src='../../../public/upload.png'></img>
+                   <img  className='w-[6.25rem] h-[6.25rem]' src='../../../public/uploadYaml.png'></img>
                     <div className='font-Jomolhari mt-[0.31] text-[1.875rem]'>Upload</div>
                     <div className='text-[1.5625rem] mt-[2.5rem] text-center font-Jomolhari'>Upload from your device <br></br> (.YML file)</div>
                 </div>
