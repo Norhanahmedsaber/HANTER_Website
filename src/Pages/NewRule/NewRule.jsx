@@ -1,10 +1,19 @@
 
-import React, { useState } from 'react'
+import React, { useState ,useEffect} from 'react'
 import Navbar from '../../Components/Navbar/Navbar'
 import UploadRule from '../../Modals/NewRule/UploadRule'
 import RuleForm from './RuleForm'
 import { useLocation } from 'react-router-dom'
+import Cookies from 'js-cookie'
 export default function NewRule() {
+  const [isAuth , setIsAuth] = useState(false)
+  useEffect(()=>{
+      if(Cookies.get('token')){
+          setIsAuth(true)
+      }else{
+          setIsAuth(false)
+      }
+  }, [])
   
   const [uploadModalOpen, setUploadModalOpen] = useState(false)
   return (
@@ -13,7 +22,7 @@ export default function NewRule() {
         isOpen={uploadModalOpen}
         setIsOpen={setUploadModalOpen}
       />
-    <Navbar/>
+    <Navbar isAuth={isAuth}/>
     <div className='w-[40%] h-[90%] flex flex-col justify-center items-center'>
         <div className='w-full h-[80%] flex flex-col justify-center items-center '>
             <div className='w-full h-[15%] flex justify-around items-center my-1 border bg-slate-100 rounded-lg'>
@@ -23,12 +32,8 @@ export default function NewRule() {
               }}>Upload</div>
             </div>
             <div className='w-full h-[5%]  my-1  text-center'>Or Create Your a New One Using the Editor Below</div>
-            <div className='w-full h-[10%] flex my-1 '>amas</div>
             <div className='w-full h-[5%]  my-1  text-center'>OR</div>
              <RuleForm />
-            <div className='w-full h-[70%]  my-1'>
-              <RuleForm />
-            </div>
         </div>
     </div>
     </div>
