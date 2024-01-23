@@ -5,7 +5,12 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily:{
+        "Jomolhari": ["Jomolhari", "sans-serif"],
+        "Next-Bravo": ["Next-Bravo", "sans-serif"]
+      }
+    },
   },
   plugins: [],
 }

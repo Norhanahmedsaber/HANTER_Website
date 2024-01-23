@@ -10,7 +10,7 @@ export default function Login() {
     const [email,setEmail] = useState("")
     const [password,setPassword]=useState("")
     const [error, setError] = useState("")
-    const [loading, setLoading] = useState("")
+    const [loading, setLoading] = useState(false)
     const nav = useNavigate()
     
     useEffect(()=>{
@@ -41,6 +41,7 @@ export default function Login() {
                 }else {
                     const token = result.token
                     Cookies.set('token' , token , {expires:10 , secure:true})
+                    setError("")
                     nav('/')
                 }
                 setLoading(false)
@@ -48,8 +49,8 @@ export default function Login() {
         }
     }
     return (
-        <div className="flex flex-col justify-center items-center h-screen">
-            <img src="../../../public/logo.png" className= "w-[5.875rem] h-[5.6875rem]" />
+        <div className="flex flex-col justify-center items-center h-screen bg-primary font-Jomolhari">
+            <img src="../../../public/logo.png" className= "w-[5.875rem] h-[5.6875rem] mt-[1.25rem]" />
             <div className="text-[1.6875rem]">Sign in to HANTER</div>
             <div className="w-[22.5rem] mt-[1.37rem] text-[#E10808] text-[0.625rem]">{error}</div>
             <LoginForm

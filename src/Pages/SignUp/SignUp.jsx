@@ -11,8 +11,8 @@ export default function SignUp() {
   const [lastName , setLastName] = useState("")
   const [email , setEmail] = useState("")
   const [password ,setPassword] = useState("")
-  const [githubAccount , setGithubAccount] = useState("")
-  const [error, setError] = useState("the Email and Password don’t match")
+  const [error, setError] = useState("") 
+  const [loading, setLoading] = useState(false)
   const navigate = useNavigate()
   useEffect(()=>{
     if(Cookies.get('token'))
@@ -24,29 +24,33 @@ export default function SignUp() {
       }
   }, [])
   function submitHandler() {
-      fetch(config.BASE_URL+'/signup',{
-          method:"POST",
-          headers:{
-            "Content-Type": "application/json"
-          },
-          body:JSON.stringify({
-            firstName,
-            lastName,
-            email,
-            password,
-            githubAccount
-          })
-      }).then(response => response.json())
-        .then((result)=>{
-          if(result.message)
-          { 
-            setError(result.message)
-          }else{
-            const token = result.token
-            Cookies.set('token' , token , {expires:10 , secure:true})
-            navigate("/Profile")
-          }
-    })
+      if(!loading) {
+        setLoading(true)
+        fetch(config.BASE_URL+'/signup',{
+            method:"POST",
+            headers:{
+              "Content-Type": "application/json"
+            },
+            body:JSON.stringify({
+              firstName,
+              lastName,
+              email,
+              password,
+            })
+        }).then(response => response.json())
+          .then((result)=>{
+            if(result.message)
+            { 
+              setError(result.message)
+            }else{
+              const token = result.token
+              Cookies.set('token' , token , {expires:10 , secure:true})
+              setError("")
+              navigate("/Profile")
+            }
+            setLoading(false)
+      })
+      }
   }
   return (
     <div className='flex flex-col items-center justify-start h-screen'>
@@ -63,6 +67,7 @@ export default function SignUp() {
         password={password}
         setPassword={setPassword}
         submitHandler={submitHandler}
+        loading={loading}
       ></SignupForm>
       <Footer text={"Already Have an Account?"} pressableText={"Log in"} path={"/login"} />
       

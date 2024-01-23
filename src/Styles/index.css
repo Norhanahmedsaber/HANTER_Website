@@ -2,6 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+    font-family: 'Jomolhari';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Jomolhari'), url('./public/fonts/Jomolhari.woff') format('woff');
+}
+@font-face {
+    font-family: 'Next-Bravo';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Next-Bravo'), url('./public/fonts/Next-Bravo.woff') format('woff');
+}
 @layer components {
     .trans {
         @apply transition-all ease-linear duration-200
