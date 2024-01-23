@@ -15,18 +15,19 @@ function Navbar({isAuth}) {
                 <Item text={"Team"} path={'/parent'}/>
                 <Item text={"Docs"} path={'/parent'}/>
                 <Item text={"Playground"} path={'/playground'}/>
-                <Item text={"Log in"} path={'/login'}/>
-                <Item text={"Sign up"} path={'/signup'}/>
                 {!isAuth?(
                     <div className='flex justify-center items-center'>
                         <Item text={"Log in"} path={'/login'}/>
                         <Item text={"Sign up"} path={'/signup'}/>
                     </div>
                 ):(
-                    <div onClick={()=>{
-                        Cookies.remove('token')
-                    }}> 
-                        <Item text={"Logout"} path={0}></Item>
+                    <div className='flex justify-center items-center'>
+                        <Item text={"Profile"} path={'/profile'}></Item>
+                        <div onClick={()=>{
+                            Cookies.remove('token')
+                        }}> 
+                            <Item text={"Logout"} path={0}></Item>
+                        </div>
                     </div>
                 )}
             </div>

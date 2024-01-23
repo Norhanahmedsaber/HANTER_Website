@@ -10,10 +10,14 @@ export default function Profile() {
   const nav = useNavigate()
   const [user , setUser] = useState({})
   const [selectedTab , setSelectedTab] = useState(1)
+  const [isAuth , setIsAuth]= useState(false)
   useEffect(()=>{
     if(!Cookies.get('token'))
     {
-      nav('/login')
+      setIsAuth(false)
+      nav('/')
+    }else{
+      setIsAuth(true)
     }
     document.getElementById('tab-1').classList.add('selectedTab')
     fetch(config.BASE_URL+'/profile',{
@@ -25,7 +29,7 @@ export default function Profile() {
     }).then(response => response.json())
       .then((result)=>{
         if(result.message){
-        
+          console.log(result.message)
         }else{
           setUser(result)
         }
@@ -34,7 +38,7 @@ export default function Profile() {
 
   return (
     <div className='w-screen h-screen flex flex-col items-center justify-center border border-blue-500'>
-      <Navbar/>
+      <Navbar isAuth={isAuth}/>
       <div className=' border border-red-500 w-[80%] h-full p-[2%]'>
         <div className='border border-yellow-300 h-2/6 p-10'>
           My Profile:

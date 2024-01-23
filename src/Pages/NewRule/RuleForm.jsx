@@ -10,7 +10,7 @@ export default function RuleForm() {
     const [ruleName , setRuleName] = useState("")
     useEffect(()=>{
         console.log(state)
-        setContent(state.state?.content)
+        setContent(state.content)
     }, [])
     const nav = useNavigate()
     function createRuleHandler(){
