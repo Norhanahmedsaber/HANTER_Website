@@ -28,3 +28,4 @@ export const Sidebar = ({selected}) => {
     </div>
   )
 }
+export default Sidebar

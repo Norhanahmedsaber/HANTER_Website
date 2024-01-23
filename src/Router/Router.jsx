@@ -15,6 +15,7 @@ import NewProject from '../Pages/NewProject/NewProject'
 import Reports from '../Pages/Reports/Reports'
 import Rules from '../Pages/Rules/Rules'
 import { ServerDown } from '../Pages/ServerDown/ServerDown'
+import Projects from '../Pages/Projects/Projects'
 export default function Router() {
     const router = createBrowserRouter([
         {
@@ -52,6 +53,9 @@ export default function Router() {
         {
             path: '/reports',
             element: <Reports />
+        },{
+            path:'projects',
+            element:<Projects />
         },
         {
             path: '/server_error',
