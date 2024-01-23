@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Field({label, value, setValue, className}) {
+function Field({label, value, setValue, className, type}) {
     return (
         <div className='flex flex-col w-[18.6875rem] mt-[0.94rem] justify-center items-start '>
             <div className='w-full text-[0.9375rem]'>
@@ -11,6 +11,7 @@ function Field({label, value, setValue, className}) {
                     setValue(e.currentTarget.value)
                 }}
                 value={value}
+                type={type}
             />
 
         </div>
