@@ -23,13 +23,13 @@ export default function () {
       })
   },[]) 
   return (
-    <div className='flex flex-col  justify-center items-center w-full h-full'>
-        <div className='border flex justify-between items-center h-[6.5rem] w-full bg-[#F8F9FA]'>
-            <div className='text-[#000] font-Jomolhari text-[2.6875rem] ml-[1.94rem]'>Projects</div>
+    <div className='flex flex-col  justify-start items-center w-[90rem] h-full'>
+        <div className='border flex justify-center items-center h-[6.5rem] w-full bg-[#F8F9FA]'>
+            <div className='text-[#000] font-Jomolhari text-[2.6875rem] ml-[1.94rem] mr-[7.5rem]'>Projects</div>
                 <div className=''>
                     <input className='border border-[#8F8C8C] rounded-[5.3125rem]  w-[29.5rem] h-[3.3125rem] p-2' placeholder='search...'/> 
                 </div>
-                <div className='w-[15.1875rem] h-[3.8125rem] border rounded-[0.625rem] bg-secondary mr-[1.81rem] flex justify-center items-center'>
+                <div className='w-[15.1875rem] h-[3.8125rem] border rounded-[0.625rem] bg-secondary mr-[1.81rem] ml-[7.5rem] flex justify-center items-center'>
                     <img src='../../../../public/new_project.png' className='w-[2.4375rem] h-[2.4375rem]'></img>
                     <div className='text-[#FFF] text-[1.25rem] ml-[1.25rem] font-Jomolhari'>
                         NewProject
