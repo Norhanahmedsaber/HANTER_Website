@@ -7,12 +7,14 @@ export default {
   theme: {
     extend: {
       colors:{
-        "primary":"#6160B8",
-        "secondary":"#0B8D66",
+        "primary":"#1b2023",
+        "secondary":"#504F4F",
         "text":"#FFF"
       },
       fontFamily:{
         "Jomolhari": ["Jomolhari", "sans-serif"],
+        "sem1": ["sem1", "sans-serif"],
+        "sem2": ["sem2", "sans-serif"],
         "Next-Bravo": ["Next-Bravo", "sans-serif"]
       }
     },
