@@ -37,8 +37,8 @@ const [rules , setRules] = useState([])
     
         <div className='border flex justify-center items-center h-[6.5rem] w-full bg-[#F8F9FA]'>
             <div className='text-[#000] font-Jomolhari text-[2.6875rem] ml-[1.94rem] mr-[7.5rem]'>Rules</div>
-                <div className=''>
-                    <input className='border border-[#8F8C8C] rounded-[5.3125rem]  w-[29.5rem] h-[3.3125rem] p-2' placeholder='search...'/> 
+                <div className='flex justify-start items-center'>
+                    <input className='border border-[#8F8C8C] rounded-[5.3125rem]  w-[29.5rem] h-[3.3125rem] p-2' placeholder='search...'/>
                 </div>
                 <div className='w-[15.1875rem] h-[3.8125rem] border rounded-[0.625rem] bg-secondary mr-[1.81rem] ml-[7.5rem] flex justify-center items-center'>
                     <img src='../../../../public/new_project.png' className='w-[2.4375rem] h-[2.4375rem]'></img>
@@ -49,7 +49,7 @@ const [rules , setRules] = useState([])
                 </div>            
             </div>
         </div>
-            <div className='flex flex-col h-[42.9375rem] w-[69.375rem] mt-[2.25rem]'>
+            <div className='flex flex-col h-[42.9375rem] w-[calc(100%-3.5rem)] mt-[2.25rem]'>
                 <div className='h-[5.5625rem] rounded-t-[0.625rem] bg-[#EEE] flex justify-center items-center font-Jomolhari text-[1.25rem] text-[#000] w-full'>
                     <div className='w-[40%] pl-[1.06rem]'>Rule name</div>
                     <div className='w-[15%] text-center'>Last Edit</div>
