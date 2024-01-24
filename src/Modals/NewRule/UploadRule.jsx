@@ -56,34 +56,34 @@ export default function UploadRule({ isOpen, setIsOpen }) {
         <Modal
             isOpen = {isOpen}
             appElement={document.getElementById('roor')}
-            className={'shadow-xl shadow-slate-300 bg-[#EEE] w-[71.875rem] h-[37.5rem] left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 absolute flex flex-col justify-between items-center border p-5 rounded-md bg-secondary-2 text-black'}
+            className={'shadow-xl shadow-slate-300 bg-[#EEE] w-[40rem] h-[25.25rem] left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 absolute flex flex-col justify-start items-center border rounded-md bg-secondary-2 text-black'}
             shouldFocusAfterRender={false}
             onRequestClose={close}
             closeTimeoutMS={200}
         >
-            <div className='mt-[3rem] text-[2.1875rem]'>Upload Rule</div>
-            <div className='text-sm ml-4 text-[#E10808] w-[55.875rem]'>{error}</div>
-            <div className='h-[4.3125rem] flex'>
-                <div className='w-[14.9375rem] bg-[#8F8C8C] rounded-l-[1.25rem] flex justify-center items-center text-white text-[2.5rem]'>Name</div>
+            <div className='mt-[1.5rem] text-[1.5rem]'>Upload Rule</div>
+            <div className='text-sm text-[#E10808] w-[30rem] mt-[2.12rem]'>{error}</div>
+            <div className='h-[2.125rem] m-2 flex'>
+                <div className='w-[10.5rem] bg-[#8F8C8C] rounded-l-[1.25rem] flex justify-center items-center text-white text-[1rem]'>Name</div>
                 <input
                     id='Res-Name'
-                    className='w-[40.9375rem] bg-white rounded-r-[1.25rem] pl-4 text-[1.875rem]'
+                    className='w-[20.25rem] h-[2.125rem] bg-white rounded-r-[1.25rem] pl-[4.86rem] text-[0.875rem]'
                     type='text'
                     onChange={(e) => {
                         setName(e.target.value)
                     }}
                 />
             </div>
-            <div className='h-[4.3125rem] flex mt-[4rem]'>
-                <div className='w-[14.9375rem] bg-[#8F8C8C] rounded-l-[1.25rem] flex justify-center items-center text-white text-[2.5rem]'>Upload File</div>
-                <div className='relative w-[40.9375rem] bg-white rounded-r-[1.25rem] pl-4 text-[1.875rem] flex justify-start items-center'>
+            <div className='h-[2.125rem] flex mt-[2.12rem]'>
+                <div className='w-[10.5rem] bg-[#8F8C8C] rounded-l-[1.25rem] flex justify-center items-center text-white text-[1rem]'>Upload File</div>
+                <div className='relative w-[20.25rem] bg-white rounded-r-[1.25rem] pl-4 text-[1.875rem] flex justify-start items-center'>
                     <div className='flex justify-start items-center'>{selectedFile?.name}</div>
-                    <label htmlFor='Res-Text' className='w-[3.125rem] h-[3.125rem] bg-[#8F8C8C] rounded-full absolute right-[1rem] top-[0.62rem] flex justify-center items-center cursor-pointer'>
-                        <img src="../../../public/upload.png" className='w-[2.5rem] h-[2.5rem]' alt="" />
+                    <label htmlFor='Res-Text' className='w-[1.5rem] h-[1.5rem] bg-[#8F8C8C] rounded-full absolute right-[0.31rem] top-[0.31rem] flex justify-center items-center cursor-pointer'>
+                        <img src="../../../public/upload.png" className='w-[0.9rem] h-[0.9rem]' alt="" />
                     </label>
                 </div>
             </div>
-            <div className='w-[55.875rem] h-[4.3125rem] bg-[#539A9F] mt-[4rem] rounded-[1.25rem] flex justify-center items-center text-white text-[2.5rem] cursor-pointer'
+            <div className='w-[30.75rem] h-[2.125rem] bg-[#539A9F] mt-[3.12rem] rounded-[1.25rem] flex justify-center items-center text-white text-[1rem] cursor-pointer'
                 onClick={() => {
                     if (name) {
                         handleSubmission();

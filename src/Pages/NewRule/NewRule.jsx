@@ -1,10 +1,9 @@
 
 import React, { useState ,useEffect} from 'react'
 import Navbar from '../../Components/Navbar/Navbar'
-import UploadRule from '../../Modals/NewRule/UploadRule'
 import RuleForm from './RuleForm'
-import { useLocation } from 'react-router-dom'
 import Cookies from 'js-cookie'
+import Sidebar from '../../Components/Sidebar/Sidebar'
 export default function NewRule() {
   const [isAuth , setIsAuth] = useState(false)
   useEffect(()=>{
@@ -17,25 +16,14 @@ export default function NewRule() {
   
   const [uploadModalOpen, setUploadModalOpen] = useState(false)
   return (
-    <div className='h-screen w-screen flex flex-col justify-center items-center'>
-      <UploadRule
-        isOpen={uploadModalOpen}
-        setIsOpen={setUploadModalOpen}
-      />
-    <Navbar isAuth={isAuth}/>
-    <div className='w-[40%] h-[90%] flex flex-col justify-center items-center'>
-        <div className='w-full h-[80%] flex flex-col justify-center items-center '>
-            <div className='w-full h-[15%] flex justify-around items-center my-1 border bg-slate-100 rounded-lg'>
-              <div>Upload an existing rule from your device:</div>
-              <div className='h-[60%] w-1/5 flex justify-center items-center bg-blue-700 bg-opacity-70 rounded-lg text-white font-bold hover:cursor-pointer hover:bg-opacity-100' onClick={() => {
-                setUploadModalOpen(true)
-              }}>Upload</div>
-            </div>
-            <div className='w-full h-[5%]  my-1  text-center'>Or Create Your a New One Using the Editor Below</div>
-            <div className='w-full h-[5%]  my-1  text-center'>OR</div>
-             <RuleForm />
+    <div className='h-screen w-screen flex justify-center items-center'>
+      <Sidebar selected={"rules"} />
+      <div className='w-[calc(100%-17.125rem)] h-full font-sem2'>
+        <div className='w-full h-[6.5rem] border flex items-center pl-[1.69rem] text-[2.6875rem] bg-[#F8F9FA]'>New Rule</div>
+        <div className='w-full h-[calc(100%-6.5rem)] border'>
+          
         </div>
-    </div>
+      </div>
     </div>
   )
 }

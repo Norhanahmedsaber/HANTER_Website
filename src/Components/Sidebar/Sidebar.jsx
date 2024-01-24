@@ -4,9 +4,9 @@ import Components from './Components'
 export const Sidebar = ({selected}) => {
   return (
     <div className='h-full w-[17.125rem] flex flex-col justify-start items-start bg-primary'>
-      <div className='w-full h-[6.5rem] flex justify-center items-center border'>
+      <div className='w-full h-[6.5rem] flex justify-center items-center border-b'>
         <img src="../../../public/menu.png" className=' w-[1.375rem] h-[1.375rem] hover:cursor-pointer'/>
-        <div className='text-[#FFF] font-Jomolhari w-[12.785rem] h-[1.625rem] ml-[0.44rem] mr-[0.19rem]'>norhan3182001@gmail.com</div>
+        <div className='text-[#FFF] font-sem2 w-[12.785rem] h-[1.625rem] ml-[0.44rem] mr-[0.19rem]'>norhan3182001@gmail.com</div>
         <img src="../../../public/down-arrow.png" className='w-[1.5rem] h-[1.5rem] hover:cursor-pointer'/>
       </div>
       <div className='flex w-full h-full flex-col items-between justify-between mb-[1.13rem]'>
@@ -21,7 +21,7 @@ export const Sidebar = ({selected}) => {
             <Components iconPath={"../../../public/docs.png"} text={"Docs"}/>
           </div>
       </div>
-      <div className='w-full h-[6.5rem] border flex justify-center items-center' >
+      <div className='w-full h-[6.5rem] border-t flex justify-center items-center' >
         <img src={"../../../../public/logo.png"} className='w-[3.6875rem] h-[3.6875rem] m '/>
         <div className='text-[2.1875rem] font-Jomolhari'>HANTER</div>
       </div>

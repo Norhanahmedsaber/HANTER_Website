@@ -13,6 +13,8 @@ export default {
       },
       fontFamily:{
         "Jomolhari": ["Jomolhari", "sans-serif"],
+        "sem1": ["sem1", "sans-serif"],
+        "sem2": ["sem2", "sans-serif"],
         "Next-Bravo": ["Next-Bravo", "sans-serif"]
       }
     },

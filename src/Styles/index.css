@@ -9,6 +9,18 @@
     src: local('Jomolhari'), url('./public/fonts/Jomolhari.woff') format('woff');
 }
 @font-face {
+    font-family: 'sem1';
+    font-style: normal;
+    font-weight: normal;
+    src: local('sem1'), url('./public/fonts/sem1.woff') format('woff');
+}
+@font-face {
+    font-family: 'sem2';
+    font-style: normal;
+    font-weight: normal;
+    src: local('sem2'), url('./public/fonts/sem2.woff2') format('woff2');
+}
+@font-face {
     font-family: 'Next-Bravo';
     font-style: normal;
     font-weight: normal;
