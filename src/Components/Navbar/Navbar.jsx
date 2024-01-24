@@ -5,31 +5,18 @@ import Cookies from 'js-cookie'
 
 
 
-function Navbar({isAuth}) {
+function Navbar({selected}) {
     return (
-        <div className="flex text-white items-center justify-between border h-[10%]">
-        <div className='w-[5%] rounded-full ml-20'>
-            <img src={'../../../public/logo.png'} className='rounded-full'/>
+        <div className="flex w-full h-[6.25rem] items-center justify-between border ">
+        <div className=' flex flex-row justify-start items-center ml-[1.5rem]'>
+            <img src={'../../../public/logo2.png'} className=' w-[4.1875rem] h-[4.0625rem] '/>
+            <div className='font-Jomolhari text-[2.1875rem] h-[3.5rem] [w-[9.875rem] mt-[0.5rem]'>HANTER</div>
         </div>
-            <div className='flex justify-center items-center mr-10'>
-                <Item text={"Team"} path={'/parent'}/>
-                <Item text={"Docs"} path={'/parent'}/>
-                <Item text={"Playground"} path={'/playground'}/>
-                {!isAuth?(
-                    <div className='flex justify-center items-center'>
-                        <Item text={"Log in"} path={'/login'}/>
-                        <Item text={"Sign up"} path={'/signup'}/>
-                    </div>
-                ):(
-                    <div className='flex justify-center items-center'>
-                        <Item text={"Profile"} path={'/profile'}></Item>
-                        <div onClick={()=>{
-                            Cookies.remove('token')
-                        }}> 
-                            <Item text={"Logout"} path={0}></Item>
-                        </div>
-                    </div>
-                )}
+            <div className='flex flex-row justify-between items-center mb-[2rem] mt-[2rem]'>
+                {selected=="team"?(<Item text={"Teams"} path={'/parent'} selected={true}/>):<Item text={"Teams"} path={'/parent'}/>}
+                {selected=="Docs"?(<Item text={"Docs"} path={'/parent'} selected={true}/>):<Item text={"Docs"} path={'/parent'}/>}
+                {selected=="playground"?(<Item text={"Playground"} path={'/playground'} selected={true}/>):<Item text={"Playground"} path={'/playground'}/>}
+                {selected=="signin"?(<Item text={"SignIn"} path={'/login'} selected={true}/>):<Item text={"SignIn"} path={'/login'}/>}
             </div>
         </div>
     )

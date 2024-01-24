@@ -19,13 +19,13 @@
         @apply transition-all ease-linear duration-200
     }
     .list-rules-tab {
-        @apply w-1/2 h-full flex justify-center items-center border rounded-t-lg bg-slate-50 hover:bg-slate-100 trans hover:cursor-pointer text-sm
+        @apply w-1/2 h-full flex justify-center items-center border bg-[#FFF] hover:bg-[#D9D9D9]  hover:cursor-pointer text-sm
     }
     .list-rules-tab-selected {
-        @apply w-1/2 h-full flex justify-center items-center border border-b-0 rounded-t-lg bg-slate-200 trans text-sm
+        @apply w-1/2 h-full flex justify-center items-center bg-[#D9D9D9] border-b-[3px] border-[#362CA5] text-sm
     }
     .list-rules-rule {
-        @apply w-[90%] h-8 flex justify-center items-center rounded-md my-0.5 border border-blue-300 cursor-pointer hover:bg-blue-300 trans
+        @apply w-[90%] h-8 flex justify-start pl-2 items-center  cursor-pointer 
     }
 }
 .ReactModal__Overlay {

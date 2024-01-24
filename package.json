@@ -13,6 +13,7 @@
     "@babel/runtime": "7.0.0-beta.55",
     "@codemirror/lang-javascript": "^6.2.1",
     "@codemirror/theme-one-dark": "^6.1.2",
+    "@focus-reactive/react-yaml": "^1.1.2",
     "@monaco-editor/react": "^4.6.0",
     "codemirror": "^6.0.1",
     "file-saver": "^2.0.5",
@@ -24,7 +25,6 @@
     "react-router-dom": "^6.20.1"
   },
   "devDependencies": {
-    "@focus-reactive/react-yaml": "^1.1.2",
     "@types/react": "^18.2.37",
     "@types/react-dom": "^18.2.15",
     "@uiw/codemirror-theme-vscode": "^4.21.21",
