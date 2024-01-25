@@ -4,11 +4,8 @@ import Modal from "react-modal";
 import config from "../../../../config";
 import { useNavigate } from "react-router-dom";
 
-export default function DeleteProject({ isOpen, setIsOpen, id }) {
+export default function DeleteProject({ isOpen, setIsOpen, id , getProjects , close}) {
   const nav = useNavigate();
-  const close = () => {
-    setIsOpen(false);
-  };
   function deleteProjectHandler() {
     fetch(config.BASE_URL + "/project/" + id, {
       method: "DELETE",
@@ -20,7 +17,8 @@ export default function DeleteProject({ isOpen, setIsOpen, id }) {
       .then((response) => response.json())
       .then((result) => {
         if (result.message) {
-          nav(0);
+          getProjects()
+          close("deleted")
           console.log(result.message);
         } else {
           console.log("ERRORRRRRRR");
@@ -55,8 +53,6 @@ export default function DeleteProject({ isOpen, setIsOpen, id }) {
               className="bg-[#096ADA] w-[9.375rem] h-[2.413rem] rounded-[0.6rem] text-[1.25rem] cursor-pointer flex justify-center items-center text-white"
               onClick={() => {
                 deleteProjectHandler();
-                close("deleted");
-                getRules();
                 toast("anas and hussien");
               }}
             >
