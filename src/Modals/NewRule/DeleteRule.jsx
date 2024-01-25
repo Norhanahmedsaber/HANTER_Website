@@ -3,11 +3,9 @@ import Cookies from 'js-cookie';
 import Modal from 'react-modal'
 import config from '../../../config';
 import { useNavigate } from 'react-router-dom';
-export default function DeleteRule({ isOpen, setIsOpen, uuid, getRules }) {
+export default function DeleteRule({ isOpen, setIsOpen, close , uuid, getRules }) {
     const nav = useNavigate()
-    const close = () => {
-        setIsOpen(false);
-    }
+
     function deleteRuleHandler() {
         fetch(config.BASE_URL + '/rules/' + uuid, {
             method: "DELETE",
@@ -42,8 +40,9 @@ export default function DeleteRule({ isOpen, setIsOpen, uuid, getRules }) {
                         <div className='bg-[#da1309] w-[9.375rem] h-[2.413rem] rounded-[0.6rem] text-[1.25rem] cursor-pointer flex justify-center items-center text-white' onClick={close}>Cancel</div>
                         <div className='bg-[#096ADA] w-[9.375rem] h-[2.413rem] rounded-[0.6rem] text-[1.25rem] cursor-pointer flex justify-center items-center text-white' onClick={() => {
                             deleteRuleHandler()
-                            close()
+                            close("deleted")
                             getRules()
+                            toast("anas and hussien")
                         }}>Yes</div>
                     </div>
                 </div>
