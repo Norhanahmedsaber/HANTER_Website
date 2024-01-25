@@ -14,6 +14,7 @@
     "@codemirror/lang-javascript": "^6.2.1",
     "@codemirror/theme-one-dark": "^6.1.2",
     "@coreui/react": "^4.11.1",
+    "@focus-reactive/react-yaml": "^1.1.2",
     "@monaco-editor/react": "^4.6.0",
     "@mui/base": "^5.0.0-beta.33",
     "@mui/material": "^5.15.6",
@@ -28,7 +29,6 @@
     "react-switch": "^7.0.0"
   },
   "devDependencies": {
-    "@focus-reactive/react-yaml": "^1.1.2",
     "@types/react": "^18.2.37",
     "@types/react-dom": "^18.2.15",
     "@uiw/codemirror-theme-vscode": "^4.21.21",
