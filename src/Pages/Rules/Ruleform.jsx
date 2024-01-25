@@ -37,9 +37,16 @@ const [rules , setRules] = useState([])
     
         <div className='border flex justify-center items-center h-[6.5rem] w-full bg-[#F8F9FA]'>
             <div className='text-[#000] font-Jomolhari text-[2.6875rem] ml-[1.94rem] mr-[7.5rem]'>Rules</div>
-                <div className='flex justify-start items-center'>
-                    <input className='border border-[#8F8C8C] rounded-[5.3125rem]  w-[29.5rem] h-[3.3125rem] p-2' placeholder='search...'/>
-                </div>
+                <div class="relative"> 
+                <input type="text" 
+                       class=" text-[1.25rem] pl-10 pr-4 py-2 border border-[#8F8C8C] mt-[0.69rem] ml-[1.19rem] w-[29.5rem] h-[3.3125rem] rounded-[5.3125rem]" 
+                       placeholder="Search" /> 
+                <div class="absolute inset-y-9 left-4 pl-3  
+                            flex items-center  
+                            pointer-events-none"> 
+                    <img src={'../../../public/search.png'} className='w-[1.5rem] h-[1.5rem] '/>
+                </div> 
+            </div> 
                 <div className='w-[15.1875rem] h-[3.8125rem] border rounded-[0.625rem] bg-secondary mr-[1.81rem] ml-[7.5rem] flex justify-center items-center'>
                     <img src='../../../../public/new_project.png' className='w-[2.4375rem] h-[2.4375rem]'></img>
                     <div className='text-[#FFF] text-[1.25rem] ml-[1.25rem] font-Jomolhari' onClick={()=>{
