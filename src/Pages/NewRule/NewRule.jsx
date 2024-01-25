@@ -5,7 +5,9 @@ import Cookies from "js-cookie";
 import Sidebar from "../../Components/Sidebar/Sidebar";
 import { useLocation, useNavigate } from "react-router-dom";
 import Switch from "react-switch";
+import config from "../../../config";
 export default function NewRule() {
+  const [error, setError] = useState("");
   const [isAuth, setIsAuth] = useState(false);
   const [privacy, setPrivacy] = useState(false);
   const state = useLocation();
@@ -22,6 +24,7 @@ export default function NewRule() {
   }, []);
 
   function createRuleHandler() {
+    console.log(content);
     fetch(config.BASE_URL + "/rule", {
       method: "POST",
       headers: {
@@ -30,7 +33,8 @@ export default function NewRule() {
       },
       body: JSON.stringify({
         name: ruleName,
-        content: content.text,
+        content: content,
+        privacy: privacy,
       }),
     })
       .then((response) => response.json())
@@ -43,10 +47,9 @@ export default function NewRule() {
         }
       });
   }
-  function changeContent(cont) {
-    setContent(cont.text);
-  }
-
+  const onChange = (e) => {
+    setContent(e);
+  };
   const [uploadModalOpen, setUploadModalOpen] = useState(false);
   return (
     <div className="h-screen w-screen flex justify-center items-center">
@@ -56,40 +59,74 @@ export default function NewRule() {
           New Rule
         </div>
         <div className="w-full h-[calc(100%-6.5rem)] flex justify-center items-center">
-          <div className="w-[95%] h-[80%] flex flex-col">
-            <div className="flex w-full justify-between items-center p-2 h-[5.75rem] bg-secondary mb-2">
+          <div className="relative w-[95%] h-[75%] flex flex-col border  ">
+            <div className="text-sm text-[#E10808] absolute  -top-6">
+              {error}
+            </div>
+            <div className="flex w-full justify-between items-center p-2 h-[5.75rem] bg-secondary mb-2 rounded-t-[0.675rem]">
               <div className="flex">
-                <div className="text-[1.5625rem] font-Jomolhari text-[#000] ml-[1rem]">
+                <div className="text-[1.5625rem] font-Jomolhari text-[#FFF] ml-[1rem]">
                   Rule Name:
                 </div>
                 <input
-                  className="ml-1 border border-slate-400 text-center text-sm w-[19.3125rem] h-[2.3125rem] rounded-[0.625rem] bg-[#FFF]"
+                  className="ml-2 border border-slate-400 p-2 text-sm w-[19.3125rem] h-[2.3125rem] rounded-[0.625rem] bg-[#FFF]"
                   onChange={(e) => {
                     setRuleName(e.currentTarget.value);
                   }}
                 />
               </div>
-              <div className="flex flex-col ">
+              <div className="flex flex-col justify-center items-center">
                 <img
                   src="../../../public/privacy.png"
                   className="w-[2.5rem] h-[2.5rem] mr-[1rem]"
                 ></img>
-                <Switch onChange={setPrivacy} checked={privacy} />
+                <Switch
+                  onChange={setPrivacy}
+                  checked={privacy}
+                  className="mr-[1rem] mt-[0.1rem]"
+                />
               </div>
             </div>
             <CodeViewer
               language={"yaml"}
-              text={content}
-              onChange={setContent}
+              content={content}
+              setContent={onChange}
             />
-            <div className="flex justify-end mb-[1.2rem] mr-[1rem] ">
+            <div className="flex justify-end">
               <div
-                className=" bg-secondary flex justify-center w-[4.25rem] h-[4.25rem]  cursor-pointer mr-[1rem] rounded-full"
+                className="relative  bg-white rounded-r-[1.25rem] pl-4 text-[1.875rem] flex justify-center items-center"
                 onClick={() => {
-                  createRuleHandler();
+                  if (ruleName) {
+                    createRuleHandler();
+                    setError("");
+                  } else {
+                    setError("Failed to save!");
+                  }
                 }}
-              ></div>
-              <div className="bg-secondary flex justify-center w-[4.25rem] h-[4.25rem] rounded-full cursor-pointer"></div>
+              >
+                <label
+                  htmlFor="Res-Text"
+                  className="w-[4.25rem] h-[4.25rem] mr-[4rem] bg-[#8F8C8C] rounded-full absolute right-[0.31rem] top-[0.31rem] flex justify-center items-center cursor-pointer"
+                >
+                  <img
+                    src="../../../public/Save.png"
+                    className="w-[1.9rem] h-[1.9rem]"
+                    alt=""
+                  />
+                </label>
+              </div>
+              <div className="relative  bg-white rounded-r-[1.25rem] pl-4 text-[1.875rem] flex justify-center items-center">
+                <label
+                  htmlFor="Res-Text"
+                  className="w-[4.25rem] h-[4.25rem] bg-[#8F8C8C] rounded-full absolute right-[0.31rem] top-[0.31rem] flex justify-center items-center cursor-pointer"
+                >
+                  <img
+                    src="../../../public/downloads.png"
+                    className="w-[1.9rem] h-[1.9rem]"
+                    alt=""
+                  />
+                </label>
+              </div>
             </div>
           </div>
         </div>
