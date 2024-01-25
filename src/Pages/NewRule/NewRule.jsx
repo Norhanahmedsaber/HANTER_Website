@@ -106,7 +106,7 @@ export default function NewRule() {
               >
                 <label
                   htmlFor="Res-Text"
-                  className="w-[4.25rem] h-[4.25rem] mr-[4rem] bg-[#8F8C8C] rounded-full absolute right-[0.31rem] top-[0.31rem] flex justify-center items-center cursor-pointer"
+                  className="w-[4.25rem] h-[4.25rem] mr-[4rem] bg-[#8F8C8C] rounded-full absolute right-[0.31rem] top-[12.9rem]  flex justify-center items-center cursor-pointer"
                 >
                   <img
                     src="../../../public/Save.png"
@@ -118,7 +118,7 @@ export default function NewRule() {
               <div className="relative  bg-white rounded-r-[1.25rem] pl-4 text-[1.875rem] flex justify-center items-center">
                 <label
                   htmlFor="Res-Text"
-                  className="w-[4.25rem] h-[4.25rem] bg-[#8F8C8C] rounded-full absolute right-[0.31rem] top-[0.31rem] flex justify-center items-center cursor-pointer"
+                  className="w-[4.25rem] h-[4.25rem] bg-[#8F8C8C] rounded-full absolute right-[0.31rem] top-[12.9rem]  flex justify-center items-center cursor-pointer"
                 >
                   <img
                     src="../../../public/downloads.png"
