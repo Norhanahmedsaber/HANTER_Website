@@ -6,7 +6,7 @@ const Rules = () => {
   return (
     <div className='flex justify-start w-screen h-screen items-start'>
 
-      <Sidebar />
+      <Sidebar selected={"rules"} />
       <Ruleform />
 
     </div>
