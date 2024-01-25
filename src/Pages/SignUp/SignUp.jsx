@@ -1,6 +1,5 @@
 import React, { useEffect , useState } from 'react'
 import SignupForm from './SignupForm'
-import Logo from '../../Components/Logo'
 import Footer from '../../Components/Footer'
 import config from '../../../config'
 import { useNavigate } from "react-router-dom";

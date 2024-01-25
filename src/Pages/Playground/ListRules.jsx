@@ -1,18 +1,21 @@
 import React, { useEffect, useState } from 'react'
 import config from '../../../config'
 import Cookies from 'js-cookie'
+import { Oval } from 'react-loader-spinner'
 export default function ListRules() {
     const [search, setSearch] = useState()
     const [selectedTab, setSelectedTab] = useState(1) // system = 1 , my-rules = 2
     const [rules, setRules] = useState([])
+    const [loading, setLoading] = useState(true)
     async function loadRules() {
+        setLoading(true)
         if(selectedTab == 1) {
             const response = await fetch(config.BASE_URL + '/system')
             const result = await response.json()
             if(result.message) {
-
             }else {
                 setRules(result)
+                
             }
         }else if (selectedTab == 2) {
             const response = await fetch(config.BASE_URL + '/rules', {
@@ -22,11 +25,12 @@ export default function ListRules() {
             })
             const result = await response.json()
             if(result.message) {
-
             }else {
                 setRules(result)
             }
         }
+        setLoading(false)
+
     }
     useEffect(() => {
         loadRules()
@@ -65,7 +69,21 @@ export default function ListRules() {
             <img src={'../../../public/search.png'} className='w-[1.25rem] h-[1.25rem] '/>
         </div> 
     </div> 
-    <div className='w-[16.25rem] flex flex-col justify-start items-start mt-[1.25rem]'>
+    
+    {loading?(
+        <div className='w-full flex justify-center items-center h-[50%]'>
+            <Oval
+            visible={true}
+            height="30"
+            width="30"
+            color="#ffffff"
+            ariaLabel="oval-loading"
+            wrapperStyle={{}}
+            wrapperClass=""
+            />
+        </div>
+      ):(
+        <div className='w-[16.25rem] flex flex-col justify-start items-start mt-[1.25rem]'>
         {rules.map((rule, index) => {
             return (
                 <div className=' w-[13.785rem] p-1 mb-[0.63rem] ml-[1.19rem] flex flex-row hover:bg-[#D9D9D9] rounded-[0.625rem]'>
@@ -75,6 +93,7 @@ export default function ListRules() {
                 )
         })}
     </div>
+      )}     
 </div>
     </div>
   )
