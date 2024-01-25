@@ -53,7 +53,6 @@ export default function DeleteProject({ isOpen, setIsOpen, id , getProjects , cl
               className="bg-[#096ADA] w-[9.375rem] h-[2.413rem] rounded-[0.6rem] text-[1.25rem] cursor-pointer flex justify-center items-center text-white"
               onClick={() => {
                 deleteProjectHandler();
-                toast("anas and hussien");
               }}
             >
               Yes
