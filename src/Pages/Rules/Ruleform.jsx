@@ -133,6 +133,7 @@ export default function Ruleform() {
               }}
             >
               Add Rule
+
             </div>
           </div>
         </div>
