@@ -11,9 +11,9 @@ export const Sidebar = ({selected}) => {
       </div>
       <div className='flex w-full h-full flex-col items-between justify-between mb-[1.13rem]'>
           <div className='mt-[1.13rem]'>
-            {selected=="dashboard"?(<Components iconPath={"../../../public/dashboard.png"} text={"Dashboard"} selected={true}/>):(<Components iconPath={"../../../public/dashboard.png"} text={"Dashboard"} />)}
-            {selected=="projects"?(<Components iconPath={"../../../public/projects.png"} text={"Projects"} selected={true}/>):(<Components iconPath={"../../../public/projects.png"} text={"Projects"} />)}
-            {selected=="rules"?(<Components iconPath={"../../../public/Rules.png"} text={"Rules"} selected={true}/>):(<Components iconPath={"../../../public/Rules.png"} text={"Rules"} />)}
+            {selected=="dashboard"?(<Components path={'/dashboard'} iconPath={"../../../public/dashboard.png"} text={"Dashboard"} selected={true}/>):(<Components path={'/dashboard'} iconPath={"../../../public/dashboard.png"} text={"Dashboard"} />)}
+            {selected=="projects"?(<Components path={'/projects'} iconPath={"../../../public/projects.png"} text={"Projects"} selected={true}/>):(<Components path={'/projects'} iconPath={"../../../public/projects.png"} text={"Projects"} />)}
+            {selected=="rules"?(<Components path={'/rules'} iconPath={"../../../public/Rules.png"} text={"Rules"} selected={true}/>):(<Components path={'/rules'} iconPath={"../../../public/Rules.png"} text={"Rules"} />)}
           </div>
           <div>
             <Components iconPath={"../../../public/playground.png"} text={"Playground"}/>

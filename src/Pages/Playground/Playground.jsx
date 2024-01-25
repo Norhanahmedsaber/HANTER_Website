@@ -26,7 +26,7 @@ export default function Playground() {
     saveAs(blob , "rule.yml")//name of the file instead of rule.yml
   }
   return (
-    <div className='w-screen h-screen flex justify-start items-center flex-col font-Jomolhari'>
+    <div className='w-screen h-screen flex justify-start items-center flex-col font-sem2'>
       <Navbar/>
       <div className='w-full h-[calc(100%-6.25rem)] bg-secondary pt-[1rem] flex justify-center items-center'>
         <ListRules/>

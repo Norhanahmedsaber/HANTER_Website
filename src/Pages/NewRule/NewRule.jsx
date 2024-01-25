@@ -59,7 +59,7 @@ export default function NewRule() {
           <div className="w-[95%] h-[80%] flex flex-col">
             <div className="flex w-full justify-between items-center p-2 h-[5.75rem] bg-secondary mb-2">
               <div className="flex">
-                <div className="text-[1.5625rem] font-Jomolhari text-[#000] ml-[1rem]">
+                <div className="text-[1.5625rem] font-sem2 text-[#000] ml-[1rem]">
                   Rule Name:
                 </div>
                 <input
