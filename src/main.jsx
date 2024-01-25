@@ -1,15 +1,15 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import './Styles/index.css'
-import Router from './Router/Router.jsx'
-import { ToastContainer, toast } from 'react-toastify'
-ReactDOM.createRoot(document.getElementById('root')).render(
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./Styles/index.css";
+import Router from "./Router/Router.jsx";
+import { ToastContainer, toast } from "react-toastify";
+ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <Router />
     <ToastContainer
       position="top-right"
       autoClose={5000}
-      hideProgressBar={true}
+      hideProgressBar={false}
       newestOnTop={false}
       closeOnClick
       rtl={false}
@@ -18,5 +18,5 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       pauseOnHover
       theme="light"
     />
-  </React.StrictMode>,
-)
+  </React.StrictMode>
+);
