@@ -29,7 +29,7 @@ export default function Ruleform() {
         getRules()
     }, [])
     return (
-        <div className='flex flex-col  justify-start items-center w-[calc(100%-12.5rem)] h-full'>
+        <div className='flex flex-col justify-start items-center w-[calc(100%-12.5rem)] h-full'>
             
             <RuleOption
                 isOpen={uploadModalOpen}
@@ -64,7 +64,7 @@ export default function Ruleform() {
                     <div className='w-[15%] text-center'>Private</div>
                     <div className='w-[10%]'></div>
                 </div></div>
-                <div className='overflow-y-scroll h-[25rem] border-b border-l'>
+                <div className='overflow-y-scroll h-[28rem] border-b border-l'>
                     {
                         rules.map((rule, index) => <Rule key={index} ruleName={rule.name} uuid={rule.uuid} id={rule.id} getRules={getRules} />)
                     }
