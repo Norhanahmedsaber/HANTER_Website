@@ -4,13 +4,13 @@ import {useNavigate} from 'react-router-dom';
 function Item({text,path,selected}) {
     const navigate = useNavigate();
     return selected?(
-        <div className='flex justify-center mr-[3.35rem] font-Jomolhari w-[3.1875rem] h-[2.25rem]  text-[primary] hover:cursor-pointer ' onClick={()=>{
+        <div className='flex justify-center mr-[2.5rem] font-sem2 text-[primary] hover:cursor-pointer font-bold' onClick={()=>{
             navigate(path)
         }}>
             {text}
         </div>
     ):(
-        <div className='flex justify-center mr-[3.35rem] font-Jomolhari w-[3.1875rem] h-[2.25rem]  text-black hover:cursor-pointer ' onClick={()=>{
+        <div className='flex justify-center mr-[2.5rem] font-sem2 text-black hover:cursor-pointer hover:text-[#1c7ed6]' onClick={()=>{
             navigate(path)
         }}>
             {text}
