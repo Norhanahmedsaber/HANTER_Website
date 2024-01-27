@@ -3,7 +3,7 @@ import config from '../../../config'
 import Cookies from 'js-cookie'
 import { Oval } from 'react-loader-spinner'
 export default function ListRules() {
-    const [search, setSearch] = useState()
+    const [search, setSearch] = useState("")
     const [selectedTab, setSelectedTab] = useState(1) // system = 1 , my-rules = 2
     const [rules, setRules] = useState([])
     const [loading, setLoading] = useState(true)
