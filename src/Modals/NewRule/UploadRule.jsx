@@ -2,7 +2,7 @@ import Cookies from 'js-cookie';
 import React, { useState } from 'react'
 import Modal from 'react-modal'
 import config from '../../../config';
-export default function UploadRule({ isOpen, setIsOpen }) {
+export default function UploadRule({ isOpen, setIsOpen, getRules }) {
     const [name, setName] = useState("")
     const [error, setError] = useState("")
     const [selectedFile, setSelectedFile] = useState();
@@ -34,6 +34,7 @@ export default function UploadRule({ isOpen, setIsOpen }) {
                 setError(result.message)
             }else {
                 alert("Uploaded Successfully")
+                getRules()
                 close()
             }
         })
@@ -67,7 +68,7 @@ export default function UploadRule({ isOpen, setIsOpen }) {
                 <div className='w-[10.5rem] bg-[#8F8C8C] rounded-l-[1.25rem] flex justify-center items-center text-white text-[1rem]'>Name</div>
                 <input
                     id='Res-Name'
-                    className='w-[20.25rem] h-[2.125rem] bg-white rounded-r-[1.25rem] pl-[4.86rem] text-[0.875rem]'
+                    className='w-[20.25rem] h-[2.125rem] bg-white rounded-r-[1.25rem] pl-3 text-[0.875rem]'
                     type='text'
                     onChange={(e) => {
                         setName(e.target.value)
@@ -76,7 +77,7 @@ export default function UploadRule({ isOpen, setIsOpen }) {
             </div>
             <div className='h-[2.125rem] flex mt-[2.12rem]'>
                 <div className='w-[10.5rem] bg-[#8F8C8C] rounded-l-[1.25rem] flex justify-center items-center text-white text-[1rem]'>Upload File</div>
-                <div className='relative w-[20.25rem] bg-white rounded-r-[1.25rem] pl-4 text-[1.875rem] flex justify-start items-center'>
+                <div className='relative w-[20.25rem] bg-white rounded-r-[1.25rem] pl-4 text-[0.875rem] flex justify-start items-center'>
                     <div className='flex justify-start items-center'>{selectedFile?.name}</div>
                     <label htmlFor='Res-Text' className='w-[1.5rem] h-[1.5rem] bg-[#8F8C8C] rounded-full absolute right-[0.31rem] top-[0.31rem] flex justify-center items-center cursor-pointer'>
                         <img src="../../../public/upload.png" className='w-[0.9rem] h-[0.9rem]' alt="" />

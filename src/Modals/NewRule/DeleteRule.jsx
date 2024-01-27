@@ -16,8 +16,8 @@ export default function DeleteRule({ isOpen, setIsOpen, close , uuid, getRules }
         }).then(response => response.json())
             .then((result) => {
                 if (result.message) {
-                    nav(0)
-                    console.log(result.message)
+                    getRules()
+                    close("deleted")
                 } else {
                     console.log('ERROORRRR')
                 }
@@ -40,9 +40,7 @@ export default function DeleteRule({ isOpen, setIsOpen, close , uuid, getRules }
                         <div className='bg-[#da1309] w-[9.375rem] h-[2.413rem] rounded-[0.6rem] text-[1.25rem] cursor-pointer flex justify-center items-center text-white' onClick={close}>Cancel</div>
                         <div className='bg-[#096ADA] w-[9.375rem] h-[2.413rem] rounded-[0.6rem] text-[1.25rem] cursor-pointer flex justify-center items-center text-white' onClick={() => {
                             deleteRuleHandler()
-                            close("deleted")
-                            getRules()
-                            toast("anas and hussien")
+                            
                         }}>Yes</div>
                     </div>
                 </div>

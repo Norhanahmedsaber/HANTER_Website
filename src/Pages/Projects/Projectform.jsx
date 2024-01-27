@@ -6,137 +6,11 @@ import { Oval } from "react-loader-spinner";
 import AddProject from "../../Modals/NewRule/projects/AddProject";
 
 export default function () {
-  const [projects, setProjects] = useState([
-    {
-      "id": 33,
-      "name": "gradProject22",
-      "config": "{'rule1':'true'}",
-      "url": "gradProject22",
-      "user_id": 4,
-      "last_scan": null,
-      "vuls": null
-    },
-    {
-      "id": 34,
-      "name": "gradProject22",
-      "config": "{'rule1':'true'}",
-      "url": "gradProject22",
-      "user_id": 4,
-      "last_scan": null,
-      "vuls": null
-    },
-    {
-      "id": 33,
-      "name": "gradProject22",
-      "config": "{'rule1':'true'}",
-      "url": "gradProject22",
-      "user_id": 4,
-      "last_scan": null,
-      "vuls": null
-    },
-    {
-      "id": 34,
-      "name": "gradProject22",
-      "config": "{'rule1':'true'}",
-      "url": "gradProject22",
-      "user_id": 4,
-      "last_scan": null,
-      "vuls": null
-    },
-    {
-      "id": 33,
-      "name": "gradProject22",
-      "config": "{'rule1':'true'}",
-      "url": "gradProject22",
-      "user_id": 4,
-      "last_scan": null,
-      "vuls": null
-    },
-    {
-      "id": 34,
-      "name": "gradProject22",
-      "config": "{'rule1':'true'}",
-      "url": "gradProject22",
-      "user_id": 4,
-      "last_scan": null,
-      "vuls": null
-    },
-    {
-      "id": 33,
-      "name": "gradProject22",
-      "config": "{'rule1':'true'}",
-      "url": "gradProject22",
-      "user_id": 4,
-      "last_scan": null,
-      "vuls": null
-    },
-    {
-      "id": 34,
-      "name": "gradProject22",
-      "config": "{'rule1':'true'}",
-      "url": "gradProject22",
-      "user_id": 4,
-      "last_scan": null,
-      "vuls": null
-    },
-    {
-      "id": 33,
-      "name": "gradProject22",
-      "config": "{'rule1':'true'}",
-      "url": "gradProject22",
-      "user_id": 4,
-      "last_scan": null,
-      "vuls": null
-    },
-    {
-      "id": 34,
-      "name": "gradProject22",
-      "config": "{'rule1':'true'}",
-      "url": "gradProject22",
-      "user_id": 4,
-      "last_scan": null,
-      "vuls": null
-    },
-    {
-      "id": 33,
-      "name": "gradProject22",
-      "config": "{'rule1':'true'}",
-      "url": "gradProject22",
-      "user_id": 4,
-      "last_scan": null,
-      "vuls": null
-    },
-    {
-      "id": 34,
-      "name": "gradProject22",
-      "config": "{'rule1':'true'}",
-      "url": "gradProject22",
-      "user_id": 4,
-      "last_scan": null,
-      "vuls": null
-    },
-    {
-      "id": 33,
-      "name": "gradProject22",
-      "config": "{'rule1':'true'}",
-      "url": "gradProject22",
-      "user_id": 4,
-      "last_scan": null,
-      "vuls": null
-    },
-    {
-      "id": 34,
-      "name": "gradProject22",
-      "config": "{'rule1':'true'}",
-      "url": "gradProject22",
-      "user_id": 4,
-      "last_scan": null,
-      "vuls": null
-    }
-  ]);
+  const [projects, setProjects] = useState([]);
   const [loading, setloading] = useState(false);
   const [addProjectModal, setAddProjectModal] = useState(false);
-  useEffect(() => {
+
+  function getProjects(){
     if (!loading) {
       setloading(true);
       fetch(config.BASE_URL + "/project", {
@@ -150,11 +24,15 @@ export default function () {
         .then((result) => {
           if (result.message) {
           } else {
-            //setProjects(result);
+            setProjects(result);
+
           }
           setloading(false);
         });
     }
+  }
+  useEffect(() => {
+   getProjects()
   }, []);
   return (
     <div className="flex flex-col justify-start items-center w-[calc(100%-12.5rem)] h-full">
@@ -217,17 +95,18 @@ export default function () {
                 lastScan={project.lastScan}
                 vuls={project.vuls}
                 id={project.id}
+                getProjects={getProjects}
               />
             ))}
           </div>
         </div>
       ) : (
         <div className="flex flex-col h-[42.9375rem] w-[calc(100%-3.5rem)] mt-[2.25rem]">
-          <div className="h-[5.5625rem] rounded-t-[0.625rem] bg-[#EEE] flex justify-center items-center font-sem2 text-[1.25rem] text-[#000] w-full">
+          <div className="h-[3.4rem] rounded-t-[0.625rem] bg-[#EEE] flex justify-center items-center font-sem2 text-[1rem] text-[#000] w-full font-bold">
             <div className="w-[50%] pl-[1.06rem]">Project name</div>
-            <div className="w-[20%] text-center">Last scan</div>
-            <div className="w-[15%] text-center">Vulnerabilities</div>
-            <div className="w-[15%]"></div>
+            <div className="w-[20%] text-center ">Last scan</div>
+            <div className="w-[20%] text-center ">Vulnerabilities</div>
+            <div className="w-[10%]"></div>
           </div>
           <div className="flex flex-col border justify-center items-center h-full">
             <img
