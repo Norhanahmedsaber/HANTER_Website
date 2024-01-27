@@ -9,6 +9,7 @@ export default {
       colors:{
         "primary":"#303030",
         "secondary":"#8F8C8C",
+        "buttons":"#1C7ED6",
         "text":"#FFF"
       },
       fontFamily:{
