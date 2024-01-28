@@ -57,7 +57,7 @@ export default function ViewRule() {
       <Sidebar />
       <div className="w-[calc(100%-12.5rem)] h-full flex flex-col border ">
         <div className="  h-[3.5rem] border border-b-[#8F8C8C]">
-          <diV className="font-sem2 ml-[1.25rem] text-[2.5rem]">{name}...</diV>
+          <diV className="font-sem2 ml-[1.25rem] text-[2.5rem]">{name}</diV>
         </div>
         <div className="w-[38.25rem] h-[10.5rem] flex justify-center items-center ">
           <div className="font-sem2 pl-[1rem] text-[0.9375rem] overflow-hidden">
