@@ -6,7 +6,8 @@ import Sidebar from "../../Components/Sidebar/Sidebar";
 import { useLocation, useNavigate } from "react-router-dom";
 import Switch from "react-switch";
 import config from "../../../config";
-export default function NewRule() {
+export default function NewRule(props) {
+  const { ruleData } = props;
   const [error, setError] = useState("");
   const [isAuth, setIsAuth] = useState(false);
   const [privacy, setPrivacy] = useState(false);
@@ -14,6 +15,7 @@ export default function NewRule() {
   const [content, setContent] = useState("");
   const [ruleName, setRuleName] = useState("");
   const nav = useNavigate();
+  const receivedData = state.state;
   useEffect(() => {
     setContent(state.content);
     if (Cookies.get("token")) {
@@ -22,6 +24,7 @@ export default function NewRule() {
       setIsAuth(false);
     }
   }, []);
+
   async function downloadYamlFile() {
     const yamlContent = content;
     const blob = new Blob([yamlContent], { type: "application/yaml" });
@@ -106,6 +109,7 @@ export default function NewRule() {
                   if (ruleName) {
                     createRuleHandler();
                     setError("");
+                    console.log(ruleData);
                   } else {
                     setError("Failed to save!");
                   }
