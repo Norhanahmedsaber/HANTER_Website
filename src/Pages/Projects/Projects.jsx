@@ -7,7 +7,7 @@ export const Projects = () => {
     <div className='flex justify-start w-screen h-screen items-start'>
     
       <Sidebar selected={"projects"} />
-      <Projectform />
+        <Projectform />
     </div>
   )
 }

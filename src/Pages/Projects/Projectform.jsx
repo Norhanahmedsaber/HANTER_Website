@@ -4,6 +4,7 @@ import config from "../../../config";
 import Cookies from "js-cookie";
 import { Oval } from "react-loader-spinner";
 import AddProject from "../../Modals/NewRule/projects/AddProject";
+import ProjectLocally from "./ProjectLocally";
 
 export default function () {
   const [projects, setProjects] = useState([]);
@@ -126,6 +127,7 @@ export default function () {
             </div>
           </div>
         </div>
+        
       )}
     </div>
   );
