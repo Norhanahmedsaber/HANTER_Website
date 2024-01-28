@@ -13,7 +13,7 @@ export default function NewRule() {
   const state = useLocation();
   const [content, setContent] = useState("");
   const [ruleName, setRuleName] = useState("");
-  const nav = useNavigate;
+  const nav = useNavigate();
   useEffect(() => {
     setContent(state.content);
     if (Cookies.get("token")) {
@@ -22,7 +22,11 @@ export default function NewRule() {
       setIsAuth(false);
     }
   }, []);
-
+  async function downloadYamlFile() {
+    const yamlContent = content;
+    const blob = new Blob([yamlContent], { type: "application/yaml" });
+    saveAs(blob, "rule.yml"); //name of the file instead of rule.yml
+  }
   function createRuleHandler() {
     console.log(content);
     fetch(config.BASE_URL + "/rule", {
@@ -34,13 +38,12 @@ export default function NewRule() {
       body: JSON.stringify({
         name: ruleName,
         content: content,
-        privacy: privacy,
       }),
     })
       .then((response) => response.json())
       .then((result) => {
         if (result.message) {
-          setError(result.message)
+          setError(result.message);
         } else {
           nav("/rule/" + result.id);
           console.log("Done");
@@ -91,7 +94,7 @@ export default function NewRule() {
             <div className="border border-t-0">
               <CodeViewer
                 language={"yaml"}
-                content={content}
+                value={content}
                 setContent={onChange}
               />
             </div>
@@ -116,7 +119,10 @@ export default function NewRule() {
               </label>
               <label
                 htmlFor="Res-Text"
-                className="w-[3rem] h-[3rem] bg-[#8F8C8C] rounded-full flex justify-center items-center cursor-pointer"
+                className="w-[3rem] h-[3rem] bg-[#8F8C8C] rounded-full flex justify-center items-center cursor-pointer "
+                onClick={() => {
+                  downloadYamlFile();
+                }}
               >
                 <img
                   src="../../../public/downloads.png"
