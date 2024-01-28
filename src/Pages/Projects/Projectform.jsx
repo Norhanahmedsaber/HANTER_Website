@@ -102,7 +102,31 @@ export default function () {
           </div>
         </div>
       ) : (
-        <ProjectLocally/>
+        <div className="flex flex-col h-[42.9375rem] w-[calc(100%-3.5rem)] mt-[2.25rem]">
+          <div className="h-[3.4rem] rounded-t-[0.625rem] bg-[#EEE] flex justify-center items-center font-sem2 text-[1rem] text-[#000] w-full font-bold">
+            <div className="w-[50%] pl-[1.06rem]">Project name</div>
+            <div className="w-[20%] text-center ">Last scan</div>
+            <div className="w-[20%] text-center ">Vulnerabilities</div>
+            <div className="w-[10%]"></div>
+          </div>
+          <div className="flex flex-col border justify-center items-center h-full">
+            <img
+              src="../../../public/broken-cable.png"
+              className="w-[9.375rem] h-[9.375rem]"
+            ></img>
+            <div className="font-Jomolhari mt-[2.5rem] text-[1.875rem]">
+              No Projects to Found. Please add projects to scan.
+            </div>
+            <div
+              className="w-[32.5rem] h-[3.0625rem] rounded-[0.625rem] bg-primary text-[#FFF] mt-[1.25rem]  flex justify-center items-center text-[1.5625rem] cursor-pointer"
+              onClick={() => {
+                setAddProjectModal(true);
+              }}
+            >
+              Add Project
+            </div>
+          </div>
+        </div>
         
       )}
     </div>
