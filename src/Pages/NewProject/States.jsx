@@ -3,21 +3,33 @@ import HorizontalStepper from './HorizontalStepper'
 import { useState } from 'react'
 import CreateFlow from './CreateFlow'
 import Buttons from './Buttons'
+import configs from '../../../config'
+import Cookies from 'js-cookie'
+import { useNavigate } from 'react-router-dom'
+
 function States() {
     const [selectedRules, setSelectedRules] = useState([])
     const [config, setConfig] = useState('{\n\t"ignoredDirs": ["node_modules", "dist"],\n\t"extensions": ["js"],\n\t"ignoredPatterns":[]\n}')
     const [CurrentStep, setCurrentStep] = useState(1)
     const [error, setError] = useState("")
+    const nav = useNavigate()
+    const url = "https://github.com/Anas12312/memecoin"
+    const projectName = "jksdbjg"
+
     function scan() {
-        fetch(config.BASE_URL + "/rule", {
+        console.log("hhh");
+        fetch(configs.BASE_URL + "/project", {
+           
             method: "POST",
             headers: {
               "Content-Type": "Application/json",
               Authorization: Cookies.get("token"),
             },
             body: JSON.stringify({
-              name: ruleName,
-              content: content,
+              name: projectName,
+              url: url,
+              config: config,
+              rules: selectedRules
             }),
           })
             .then((response) => response.json())
@@ -25,7 +37,7 @@ function States() {
               if (result.message) {
                 setError(result.message);
               } else {
-                nav("/rule/" + result.id);
+                nav("../projects" );
                 console.log("Done");
               }
             });
@@ -35,7 +47,7 @@ function States() {
             <div className='text-red-500'>{error}</div>
             <HorizontalStepper CurrentStep={CurrentStep} />
             <CreateFlow CurrentStep={CurrentStep} setSelectedRules={setSelectedRules} selectedRules={selectedRules} config={config} setConfig={setConfig} />
-            <Buttons setCurrentStep={setCurrentStep} CurrentStep={CurrentStep} scanButton={scan} />
+            <Buttons setCurrentStep={setCurrentStep} CurrentStep={CurrentStep} scan={scan} />
         </div>
     )
 }
