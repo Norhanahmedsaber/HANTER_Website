@@ -1,7 +1,8 @@
 import React from "react";
 import Modal from "react-modal";
-
+import {useNavigate} from 'react-router-dom'
 export default function AddProject({ isOpen, setIsOpen }) {
+  const nav = useNavigate()
   const close = () => {
     setIsOpen(false);
   };
@@ -18,19 +19,21 @@ export default function AddProject({ isOpen, setIsOpen }) {
         closeTimeoutMS={200}
         ReactModal__Overlay
       >
-        <div className="felx w-[28.815rem] h-[3.5rem] mt-[2.37rem]  text-[1.8rem] font-Jomolhari flex-row justify-center items-center">
+        <div className="flex w-full h-[3.5rem] mt-[2.37rem]  text-[1.8rem] font-sem2 flex-row justify-center items-center">
           How do you want to scan?
         </div>
         <div className=" flex justify-center items-center h-full w-full">
-          <div className="bg-[#FFF] flex flex-col justify-center items-center h-[15.75rem]  w-[17.5rem] bg-opacity-70 text-black hover:cursor-pointer rounded-[1.25rem]">
+          <div onClick={() => {
+            nav('../local')
+          }} className="bg-[#FFF] flex flex-col justify-center items-center h-[15.75rem]  w-[17.5rem] bg-opacity-70 text-black hover:cursor-pointer rounded-[1.25rem]">
             <img
               className="w-[4.375rem] h-[4.6875rem] "
               src="../../../public/uploadYaml.png"
             ></img>
-            <div className="font-Jomolhari mt-[0.31rem] text-[1.5rem]">
+            <div className="font-sem2 mt-[0.31rem] text-[1.5rem]">
               Locally
             </div>
-            <div className="text-[1rem] mt-[0.63rem] text-center font-Jomolhari">
+            <div className="text-[1rem] mt-[0.63rem] text-center font-sem2">
               Upload Project Locally <br></br> from your device.
             </div>
           </div>
@@ -38,17 +41,17 @@ export default function AddProject({ isOpen, setIsOpen }) {
           <div
             className="bg-[#FFF] flex flex-col justify-center items-center h-[15.75rem] w-[17.5rem] bg-opacity-70 text-black hover:cursor-pointer rounded-[1.25rem]"
             onClick={() => {
-              close();
+              nav('../new_project')
             }}
           >
             <img
               className="w-[4.375rem] h-[4.6875rem] "
-              src="../../../public/github.png"
+              src="../../../public/github1.png"
             ></img>
-            <div className="font-Jomolhari mt-[0.31rem] text-[1.5rem]">
+            <div className="font-sem2 mt-[0.31rem] text-[1.5rem]">
               Github
             </div>
-            <div className="text-[1rem] mt-[0.63rem] text-center font-Jomolhari">
+            <div className="text-[1rem] mt-[0.63rem] text-center font-sem2">
               Scan repository using <br></br> git-hub actions.
             </div>
           </div>

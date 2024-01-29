@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import Button from "../../Components/NavigationButton";
 import LoginForm from "./LoginForm";
 import Footer from "../../Components/Footer";
-import Logo from "../../Components/Logo"
 import config from "../../../config";
 import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
@@ -16,7 +15,7 @@ export default function Login() {
     useEffect(()=>{
         if(Cookies.get('token'))
         {
-            nav('/')
+            nav('/projects')
             nav(0)
         }else{
             nav('/login')
@@ -42,14 +41,14 @@ export default function Login() {
                     const token = result.token
                     Cookies.set('token' , token , {expires:10 , secure:true})
                     setError("")
-                    nav('/')
+                    nav('/projects')
                 }
                 setLoading(false)
             })
         }
     }
     return (
-        <div className="flex flex-col justify-center items-center h-screen bg-primary font-sem2">
+        <div className="flex flex-col justify-center items-center h-screen bg-white font-sem2">
             <img src="../../../public/logo.png" className= "w-[5.875rem] h-[5.6875rem] mt-[1.25rem]" />
             <div className="text-[1.6875rem]">Sign in to HANTER</div>
             <div className="w-[22.5rem] mt-[1.37rem] text-[#E10808] text-[0.625rem]">{error}</div>
