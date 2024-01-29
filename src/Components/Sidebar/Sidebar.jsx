@@ -2,8 +2,15 @@ import React, { useEffect, useState } from "react";
 import Components from "./Components";
 import config from "../../../config";
 import Cookies from "js-cookie";
+import DropDownButton from "../DropDownButton";
+import {useNavigate} from 'react-router-dom'
 export const Sidebar = ({ selected }) => {
   const [user, setUser] = useState("");
+  const nav = useNavigate()
+  function signOut () {
+    Cookies.remove('token')
+    nav('../login')
+  }
   function userHandler() {
     fetch(config.BASE_URL + "/profile", {
       method: "GET",
@@ -15,7 +22,7 @@ export const Sidebar = ({ selected }) => {
       .then((response) => response.json())
       .then((result) => {
         if (result.message) {
-          console.log(result.message);
+          nav('../login')
         } else {
           setUser(result);
         }
@@ -23,22 +30,25 @@ export const Sidebar = ({ selected }) => {
   }
   useEffect(() => {
     userHandler();
-    console.log(user);
   }, []);
   return (
     <div className="h-full w-[12.5rem] flex flex-col justify-start items-start bg-primary">
       <div className="w-full h-[4.375rem] flex justify-center items-center border-b">
         <img
           src="../../../public/menu.png"
-          className=" w-[0.93rem] h-[0.93rem] hover:cursor-pointer"
+          className=" w-[0.93rem] h-[0.93rem] mt-1 mr-2 cursor-pointer"
         />
         <div className="text-[#FFF] text-[.925rem] font-sem2 w-[8rem] truncate ml-[0.3rem]">
-          {user.first_name} {user.last_name}
+          {user.email}
         </div>
-        <img
-          src="../../../public/down-arrow.png"
-          className="w-[0.937S5rem] h-[0.9375rem] hover:cursor-pointer"
-        />
+        <DropDownButton
+          options={[{ innerText: 'Sign Out', action: () => { signOut(true) } }]}
+        >
+          <img
+            src="../../../public/down-arrow.png"
+            className="w-[0.937S5rem] h-[0.9375rem] cursor-pointer"
+          />
+        </DropDownButton>
       </div>
       <div className="flex w-full h-full flex-col items-between justify-between mb-[1.13rem]">
         <div className="mt-[0.9rem]">

@@ -39,7 +39,7 @@ export default function () {
     <div className="flex flex-col justify-start items-center w-[calc(100%-12.5rem)] h-full">
       <AddProject isOpen={addProjectModal} setIsOpen={setAddProjectModal} />
       <div className="relative flex items-center h-[4.375rem] w-full bg-[#F8F9FA] ">
-        <div className="text-[#000] font-sem2 font-bold text-[2.6875rem] ml-[1.94rem] mr-[7.5rem]">
+        <div className="text-[#000] font-sem2 font-bold text-[2rem] ml-[1.94rem] mr-[7.5rem]">
           Projects
         </div>
         <div className="relative">
@@ -112,13 +112,13 @@ export default function () {
           <div className="flex flex-col border justify-center items-center h-full">
             <img
               src="../../../public/broken-cable.png"
-              className="w-[9.375rem] h-[9.375rem]"
+              className="w-[7rem] h-[7rem]"
             ></img>
-            <div className="font-Jomolhari mt-[2.5rem] text-[1.875rem]">
+            <div className="font-sem2 mt-[2.5rem] text-[1.2rem]">
               No Projects to Found. Please add projects to scan.
             </div>
             <div
-              className="w-[32.5rem] h-[3.0625rem] rounded-[0.625rem] bg-primary text-[#FFF] mt-[1.25rem]  flex justify-center items-center text-[1.5625rem] cursor-pointer"
+              className="w-[18rem] h-[3.0625rem] rounded-[0.625rem] hover:bg-secondary bg-primary text-[#FFF] mt-[1.25rem]  flex justify-center items-center text-[1.1rem] cursor-pointer"
               onClick={() => {
                 setAddProjectModal(true);
               }}

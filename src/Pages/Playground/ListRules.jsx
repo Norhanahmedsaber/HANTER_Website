@@ -48,7 +48,7 @@ export default function ListRules({ transferRule }) {
         loadRules()
     }, [selectedTab])
     return (
-        <div className='w-[17%] h-[calc(100%-1.25rem)] flex flex-col justify-start ml-[0.62rem] rounded-t-[0.625rem] font-sem2'>
+        <div className='w-[17%] h-[calc(100%-1.25rem)] flex flex-col justify-start ml-[0.62rem] rounded-t-[0.625rem] font-sem2 overflow-hidden'>
             <TransferRule
                 transferRule={fetchRule}
                 setIsOpen={setTransferModalOpen}
@@ -58,30 +58,32 @@ export default function ListRules({ transferRule }) {
             <div className='w[100%] h-[3.75rem] justify-start items-cneter  rounded-t-[0.625rem] bg-primary'>
                 <div className=' text-white text-[1.5rem] mt-2 ml-[0.88rem]'>Library</div>
             </div>
-            <div className='w-full h-[3.125rem] flex justify-center items-center'>
-                <div id='system-rules' className='list-rules-tab-selected  text-[1rem]' onClick={() => {
-                    setSelectedTab(1)
-                    document.getElementById('system-rules').classList.add('list-rules-tab-selected')
-                    document.getElementById('system-rules').classList.remove('list-rules-tab')
+            <div className='w-full'>
+                <div className='w-full h-[3.125rem] flex justify-center items-center'>
+                    <div id='system-rules' className='list-rules-tab-selected  text-[1rem]' onClick={() => {
+                        setSelectedTab(1)
+                        document.getElementById('system-rules').classList.add('list-rules-tab-selected')
+                        document.getElementById('system-rules').classList.remove('list-rules-tab')
 
-                    document.getElementById('my-rules').classList.add('list-rules-tab')
-                    document.getElementById('my-rules').classList.remove('list-rules-tab-selected')
-                }}>System Rules</div>
-                <div id='my-rules' className='list-rules-tab text-[1rem]' onClick={() => {
-                    setSelectedTab(2)
-                    document.getElementById('my-rules').classList.add('list-rules-tab-selected')
-                    document.getElementById('my-rules').classList.remove('list-rules-tab')
+                        document.getElementById('my-rules').classList.add('list-rules-tab')
+                        document.getElementById('my-rules').classList.remove('list-rules-tab-selected')
+                    }}>System Rules</div>
+                    <div id='my-rules' className='list-rules-tab text-[1rem]' onClick={() => {
+                        setSelectedTab(2)
+                        document.getElementById('my-rules').classList.add('list-rules-tab-selected')
+                        document.getElementById('my-rules').classList.remove('list-rules-tab')
 
-                    document.getElementById('system-rules').classList.add('list-rules-tab')
-                    document.getElementById('system-rules').classList.remove('list-rules-tab-selected')
-                }}>My Rules</div>
+                        document.getElementById('system-rules').classList.add('list-rules-tab')
+                        document.getElementById('system-rules').classList.remove('list-rules-tab-selected')
+                    }}>My Rules</div>
+                </div>
             </div>
             <div className='w-full bg-[#FFF] h-full flex-col justify-center items-start  '>
-                <div class="relative">
+                <div className="relative">
                     <input type="text"
                         className="pl-10 pr-4 py-2 border-2 mt-[0.69rem] ml-[1.19rem] w-[90%] rounded-[5.3125rem] text-sm"
                         placeholder="Search" />
-                    <div class="absolute inset-y-[1.9rem] left-4 pl-3.5  
+                    <div className="absolute inset-y-[1.9rem] left-4 pl-3.5  
                     flex items-center  
                     pointer-events-none">
                         <img src={'../../../public/search.png'} className='w-[1.25rem] h-[1.25rem] ' />
@@ -101,13 +103,13 @@ export default function ListRules({ transferRule }) {
                         />
                     </div>
                 ) : (
-                    <div className='w-[16.25rem] flex flex-col justify-start items-start mt-[0.9rem]'>
+                    <div className='w-full flex flex-col justify-start items-start mt-[0.9rem] h-[70%] overflow-y-scroll'>
                         {rules.map((rule, index) => {
                             return (
                                 <div key={index} onClick={() => {
                                     setId(rule.id)
                                     setTransferModalOpen(true)
-                                }} className=' w-[80%] px-1 mb-[0.2rem] ml-[1.19rem] flex items-center hover:bg-[#D9D9D9] rounded-[0.625rem]'>
+                                }} className=' w-[80%] px-1 mb-[0.2rem] ml-4 flex items-center hover:bg-[#D9D9D9] rounded-[0.625rem]'>
                                     <img src={'../../../public/file1.png'} className='w-[1.2rem] h-[1.2rem]'></img>
                                     <div className="list-rules-rule text-[0.8rem]" key={index}>{rule.name}</div>
                                 </div>

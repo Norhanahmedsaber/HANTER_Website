@@ -13,6 +13,8 @@ import Reports from "../Pages/Reports/Reports";
 import Rules from "../Pages/Rules/Rules";
 import { ServerDown } from "../Pages/ServerDown/ServerDown";
 import Projects from "../Pages/Projects/Projects";
+import Dashboard from "../Pages/Dashboard/Dashboard";
+import ProjectLocally from "../Pages/Projects/ProjectLocally";
 export default function Router() {
   const router = createBrowserRouter([
     {
@@ -62,6 +64,14 @@ export default function Router() {
     {
       path: "/rules",
       element: <Rules />,
+    },
+    {
+      path: "/dashboard",
+      element: <Dashboard />,
+    },
+    {
+      path: "/local",
+      element: <ProjectLocally />,
     },
     {
       path: "/*",
