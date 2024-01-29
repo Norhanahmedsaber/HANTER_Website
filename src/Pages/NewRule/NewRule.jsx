@@ -74,86 +74,85 @@ export default function NewRule(props) {
       }
   }
   return (
-    <div className="h-screen w-screen flex justify-center items-center">
+    <div className="h-screen w-screen flex justify-start items-center">
       <Sidebar selected={"rules"} />
-      <div className="w-[calc(100%-12.5rem)] h-full font-sem2">
-        <div className="w-full h-[4.375rem] border flex items-center pl-[1.69rem] text-[2.6875rem] bg-[#F8F9FA]">
-          New Rule
+      <div className="w-[calc(100%-12.5rem)] h-full flex flex-col font-sem2 border items-center ">
+        <div className="w-full h-[3.6rem] border  flex  justify-start items-center  bg-[#F8F9FA]">
+          <div className="font-sem2 text-[2.6875rem] ml-[1.5rem]">New Rule</div>
         </div>
-        <div className="w-full mt-10 flex justify-center items-center">
-          <div className="relative w-[95%] flex flex-col">
+        <div className="flex flex-col w-full h-full justify-center items-center border border-red-500">
+          <div className="relative w-[99%] flex flex-col">
             <div className="text-sm text-[#E10808] absolute  -top-6">
               {error}
             </div>
+          </div>
+          <div className="w-[90%] h-[52.375rem] border rounded-[0.675rem] border-black">
             <div className="flex w-full justify-between items-center p-2 h-[4rem] bg-secondary mb-2 rounded-t-[0.675rem]">
-              <div className="flex">
-                <div className="text-[1.5625rem] font-sem2 text-[#fff] ml-[1rem]">
-                  Rule Name:
+                <div className=" w-[40%] h-full flex items-center justify-start">
+                    <div className="text-[1.5625rem] font-sem2 text-[#fff] ml-[1rem]">
+                    Rule Name:
+                    </div>
+                    <input
+                    className="ml-2 border border-slate-400 p-2 text-sm w-[19.3125rem] h-[2.3125rem] rounded-[0.625rem] bg-[#FFF]"
+                    onChange={(e) => {
+                      setRuleName(e.currentTarget.value);
+                    }}
+                  />
                 </div>
-                <input
-                  className="ml-2 border border-slate-400 p-2 text-sm w-[19.3125rem] h-[2.3125rem] rounded-[0.625rem] bg-[#FFF]"
-                  onChange={(e) => {
-                    setRuleName(e.currentTarget.value);
-                  }}
-                />
-              </div>
-              <div className="flex flex-col justify-center items-center">
-                <img
-                  src="../../../public/privacy.png"
-                  className="w-[1.5rem] h-[1.5rem] mr-[1rem]"
-                ></img>
-                <Switch
-                  onChange={handlePrivacy}
-                  checked={privacy}
-                  className="mr-[1rem] mt-[0.1rem]"
-                  size={"12rem"}
-                />
+                <div className="flex flex-col justify-center items-center w-[7%]">
+                  <img
+                    src="../../../public/privacy.png"
+                    className="w-[1.5rem] h-[1.5rem] mr-[1rem]"
+                  ></img>
+                  <Switch
+                    onChange={handlePrivacy}
+                    checked={privacy}
+                  />
               </div>
             </div>
-            <div className="border border-t-0">
+            <div className="w-[100%] h-[80%] "> 
               <CodeViewer
                 language={"yaml"}
                 value={content}
                 setContent={onChange}
-              />
+                height="300px"
+              />    
             </div>
-            <div className="flex justify-end mt-5">
+            <div className="w-[100%] h-[3rem]  flex justify-end items-center pr-2">
               <label
-                htmlFor="Res-Text"
-                className="w-[3rem] h-[3rem] mr-[1rem] bg-[#8F8C8C] rounded-full flex justify-center items-center cursor-pointer"
-                onClick={() => {
-                  if (ruleName) {
-                    createRuleHandler();
-                    setError("");
-                    console.log(ruleData);
-                  } else {
-                    setError("Failed to save!");
-                  }
-                }}
-              >
-                <img
-                  src="../../../public/Save.png"
-                  className="w-[1.2rem] h-[1.2rem]"
-                  alt=""
-                />
-              </label>
+                  className="w-[3rem] h-[3rem] mr-[1rem] bg-[#8F8C8C] rounded-full flex justify-center items-center cursor-pointer"
+                  onClick={() => {
+                    if (ruleName) {
+                      createRuleHandler();
+                      setError("");
+                      console.log(ruleData);
+                    } else {
+                      setError("Failed to save!");
+                    }
+                  }}
+                >
+                  <img
+                    src="../../../public/Save.png"
+                    className="w-[1.2rem] h-[1.2rem]"
+                  />
+              </label> 
               <label
-                htmlFor="Res-Text"
-                className="w-[3rem] h-[3rem] bg-[#8F8C8C] rounded-full flex justify-center items-center cursor-pointer "
-                onClick={() => {
-                  downloadYamlFile();
-                }}
-              >
-                <img
-                  src="../../../public/downloads.png"
-                  className="w-[1.2rem] h-[1.2rem]"
-                  alt=""
-                />
-              </label>
+                  className="w-[3rem] h-[3rem] bg-[#8F8C8C] rounded-full flex justify-center items-center cursor-pointer "
+                  onClick={() => {
+                    downloadYamlFile();
+                  }}
+                 >
+                  <img
+                    src="../../../public/downloads.png"
+                    className="w-[1.2rem] h-[1.2rem]"
+                    alt=""
+                  />
+              </label>     
             </div>
           </div>
+
         </div>
       </div>
     </div>
-  );
+  )
 }
