@@ -5,6 +5,7 @@ import UploadRule from './UploadRule';
 import { useNavigate } from 'react-router-dom';
 
 function RuleOption({ isOpen, setIsOpen, getRules }) {
+    
     const close = () => {
         setIsOpen(false);
     }

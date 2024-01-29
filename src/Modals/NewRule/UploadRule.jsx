@@ -2,45 +2,59 @@ import Cookies from 'js-cookie';
 import React, { useState } from 'react'
 import Modal from 'react-modal'
 import config from '../../../config';
+import { Oval } from "react-loader-spinner";
+import {toast} from 'react-toastify'
 export default function UploadRule({ isOpen, setIsOpen, getRules }) {
+    const [loading , setloading] = useState(false)
     const [name, setName] = useState("")
     const [error, setError] = useState("")
     const [selectedFile, setSelectedFile] = useState();
     const [isFilePicked, setIsFilePicked] = useState();
-    const close = () => {
+    const close = (status) => {
         setIsOpen(false);
+        setError("")
+        setloading(false)
+        setSelectedFile("")
+        if(status == "submitted")
+        {
+            toast("Rule Uploaded Sucessfully")
+        }
     }
     function handleSubmission() {
-        if(!isFilePicked) {
-            setError("Please Select a File to be Uploaded")
-            return
-        }
-        const formData = new FormData();
-        formData.append('name', name)
-        formData.append('rule', selectedFile);
-        fetch(
-        config.BASE_URL + '/rules',
-        {
-            method: 'POST',
-            headers:{
-                "Authorization": "Bearer " + Cookies.get('token')
-            },
-            body: formData,
-        }
-        )
-        .then((response) => response.json())
-        .then((result) => {
-            if(result.message) {
-                setError(result.message)
-            }else {
-                alert("Uploaded Successfully")
-                getRules()
-                close()
+        if(!loading)
+        {   setloading(true)
+            if(!isFilePicked) {
+                setError("Please Select a File to be Uploaded")
+                setloading(false)
+                return
             }
-        })
-        .catch((error) => {
-            console.error('Error:', error);
-        });
+            const formData = new FormData();
+            formData.append('name', name)
+            formData.append('rule', selectedFile);
+            fetch(
+            config.BASE_URL + '/rules',
+            {
+                method: 'POST',
+                headers:{
+                    "Authorization": "Bearer " + Cookies.get('token')
+                },
+                body: formData,
+            }
+            )
+            .then((response) => response.json())
+            .then((result) => {
+                if(result.message) {
+                    setError(result.message)
+                }else {
+                    getRules()
+                    close("submitted")
+                }
+                setloading(false)
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+        }
     }
     function changeHandler(event) {
         console.log(event.target.files[0].name.split('.').pop())
@@ -84,15 +98,31 @@ export default function UploadRule({ isOpen, setIsOpen, getRules }) {
                     </label>
                 </div>
             </div>
-            <div className='w-[30.75rem] h-[2.125rem] bg-[#539A9F] mt-[3.12rem] rounded-[1.25rem] flex justify-center items-center text-white text-[1rem] cursor-pointer'
-                onClick={() => {
-                    if (name) {
-                        handleSubmission();
-                    }
-                    else {
-                        setError('Please provide a name for the rule to be created!')
-                    }
-                    }}>Save Rule</div>
+                {
+                    !loading?(  
+                        <div className='w-[30.75rem] h-[2.125rem] bg-[#539A9F] mt-[3.12rem] rounded-[1.25rem] flex justify-center items-center text-white text-[1rem] cursor-pointer'
+                        onClick={() => {
+                        if (name) {
+                            handleSubmission();
+                        }
+                        else {
+                            setError('Please provide a name for the rule to be created!')
+                        }
+                        }}>Save Rule</div>)
+                    :(
+                        <div className='w-[30.75rem] h-[2.125rem] bg-[#539A9F] mt-[3.12rem] rounded-[1.25rem] flex justify-center items-center text-white text-[1rem] cursor-pointer'>
+                            <Oval
+                            visible={true}
+                            height="20"
+                            width="20"
+                            color="#000"
+                            ariaLabel="oval-loading"
+                            wrapperStyle={{}}
+                            wrapperClass=""
+                            />
+                        </div>
+                    )
+                }
             
             <div className='w-full hidden'>
             <div><label htmlFor="Res-Text" className='text-sm ml-1'>File</label></div>
