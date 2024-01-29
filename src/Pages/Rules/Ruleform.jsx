@@ -5,10 +5,13 @@ import config from "../../../config";
 import Cookies from "js-cookie";
 import { Oval } from "react-loader-spinner";
 import "react-toastify/dist/ReactToastify.css";
+import { rule } from "postcss";
 export default function Ruleform() {
   const [uploadModalOpen, setUploadModalOpen] = useState(false);
   const [rules, setRules] = useState([]);
   const [loading, setloading] = useState(false);
+  const [search , setSearch] = useState(false)
+  const [searchedRules , setSearchedRules] = useState([])
   function getRules() {
     if (!loading) {
       setloading(true);
@@ -30,6 +33,14 @@ export default function Ruleform() {
         });
     }
   }
+  function searchInRules()
+  { 
+    setSearch(true)
+    let input = document.getElementById('search-bar').value
+    let result= rules.filter(rule => rule.name.toLowerCase().includes(input))
+    setSearchedRules(result)
+
+  }
   useEffect(() => {
     getRules();
   }, []);
@@ -40,11 +51,13 @@ export default function Ruleform() {
         <div className="text-[#000] font-sem2 font-bold text-[2.6875rem] ml-[1.94rem] mr-[7.5rem]">
           Rules
         </div>
-        <div className="relative">
+        <div   className="relative">
           <input
+            id="search-bar"
             type="text"
             className=" text-[1.25rem] pl-8 pr-4 border border-[#8F8C8C] ml-[1.19rem] w-[29.5rem] h-[2.5rem] rounded-[5.3125rem]"
             placeholder="Search..."
+            onChange={searchInRules}
           />
           <div
             className="absolute inset-y-2 left-4 pl-3  
@@ -96,15 +109,34 @@ export default function Ruleform() {
             </div>
           </div>
           <div className="overflow-y-scroll h-[25rem] border-b border-l">
-            {rules.map((rule, index) => (
-              <Rule
-                key={index}
-                ruleName={rule.name}
-                uuid={rule.uuid}
-                id={rule.id}
-                getRules={getRules}
-              />
-            ))}
+            {
+              !search?(
+                  rules.map((rule, index) => (
+                  <Rule
+                    key={index}
+                    ruleName={rule.name}
+                    ruleSeverity={rule.severity}
+                    rulePublic={rule.public}
+                    uuid={rule.uuid}
+                    id={rule.id}
+                    getRules={getRules}
+                  />
+                ))
+              )
+              :(
+                searchedRules.map((rule, index) => (
+                  <Rule
+                    key={index}
+                    ruleName={rule.name}
+                    ruleSeverity={rule.severity}
+                    rulePublic={rule.public}
+                    uuid={rule.uuid}
+                    id={rule.id}
+                    getRules={getRules}
+                  />
+                ))
+              )
+            }
           </div>
         </div>
       ) : (

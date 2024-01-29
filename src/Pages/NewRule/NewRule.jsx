@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import Navbar from "../../Components/Navbar/Navbar";
 import CodeViewer from "../Playground/CodeViewer";
 import Cookies from "js-cookie";
 import Sidebar from "../../Components/Sidebar/Sidebar";
@@ -11,6 +10,7 @@ export default function NewRule(props) {
   const [error, setError] = useState("");
   const [isAuth, setIsAuth] = useState(false);
   const [privacy, setPrivacy] = useState(false);
+  const [Public, setPublic] = useState(0);
   const state = useLocation();
   const [content, setContent] = useState("");
   const [ruleName, setRuleName] = useState("");
@@ -32,6 +32,7 @@ export default function NewRule(props) {
   }
   function createRuleHandler() {
     console.log(content);
+    console.log(privacy)
     fetch(config.BASE_URL + "/rule", {
       method: "POST",
       headers: {
@@ -41,6 +42,7 @@ export default function NewRule(props) {
       body: JSON.stringify({
         name: ruleName,
         content: content,
+        public: Public
       }),
     })
       .then((response) => response.json())
@@ -56,7 +58,21 @@ export default function NewRule(props) {
   const onChange = (e) => {
     setContent(e);
   };
-  const [uploadModalOpen, setUploadModalOpen] = useState(false);
+
+  function handlePrivacy(e)
+  { 
+    setPrivacy(e)
+    if(privacy)
+    {
+      setPublic(0)
+      console.log(Public)
+      }
+      else{
+        setPublic(1)
+      console.log(Public)
+        
+      }
+  }
   return (
     <div className="h-screen w-screen flex justify-center items-center">
       <Sidebar selected={"rules"} />
@@ -87,7 +103,7 @@ export default function NewRule(props) {
                   className="w-[1.5rem] h-[1.5rem] mr-[1rem]"
                 ></img>
                 <Switch
-                  onChange={setPrivacy}
+                  onChange={handlePrivacy}
                   checked={privacy}
                   className="mr-[1rem] mt-[0.1rem]"
                   size={"12rem"}
