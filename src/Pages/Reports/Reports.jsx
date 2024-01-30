@@ -1,9 +1,35 @@
-import React from "react";
+import React, { useEffect , useState} from "react";
 import Sidebar from "../../Components/Sidebar/Sidebar";
 import ProjectBar from "./ProjectBar";
 import MatchingSide from "./MatchingSide";
+import config from "../../../config";
+import Cookies from "js-cookie";
 
-export default function Reports() {
+export default function Reports(projectId) {
+  
+  const [error, setError] = useState("")
+  const [reports , setReports] = useState([])
+
+  function loadReports()
+  {
+      fetch(config.BASE_URL+'/reports'+projectId,{
+        method:"GET",
+        headers:{
+          "Content-Type":"application/json",
+          "Authorization":"Bearer "+Cookies.get('token')
+        }
+      }).then(response => response.json())
+      .then((result)=>{
+        if(result.message){
+          setError(result.message)
+        }else{
+          setReports(reports)
+        }
+      })
+  }
+  useEffect(()=>{
+    loadReports()
+  },[])
   return (
     <div className="flex justify-start w-screen h-screen items-start">
       <Sidebar />
@@ -38,6 +64,9 @@ export default function Reports() {
                 70 matching found
               </div>
             </div>
+            {
+              reports.map((report)=> <MatchingSide ruleName={report.rule_name} filepath={report.filepath} line={report.line} col={report.col}/>)
+            }
             <MatchingSide />
           </div>
         </div>
