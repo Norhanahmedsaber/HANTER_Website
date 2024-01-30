@@ -15,8 +15,7 @@ function Buttons({ setCurrentStep, CurrentStep, scan }) {
                 )}
                 {CurrentStep == 3 ? (
                     <div onClick={()=>{}} className='flex justify-around items-center bg-buttons w-[12.5rem] h-[3.125rem] rounded-[0.625rem] cursor-pointer'>
-                        <div onClick={()=>{scan()
-                        }} className=' text-[1.25rem] text-white'>Scan</div>
+                        <div onClick={()=>{scan()}} className=' text-[1.25rem] text-white'>Scan</div>
                     </div>
                 ) : (
                     <div onClick={()=>{setCurrentStep(CurrentStep+1)}} className='flex justify-around items-center bg-buttons w-[12.5rem] h-[3.125rem] rounded-[0.625rem] cursor-pointer'>
