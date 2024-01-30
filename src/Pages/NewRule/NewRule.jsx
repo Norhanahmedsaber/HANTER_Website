@@ -80,7 +80,7 @@ export default function NewRule(props) {
         <div className="w-full h-[3.6rem] border  flex  justify-start items-center  bg-[#F8F9FA]">
           <div className="font-sem2 text-[2.6875rem] ml-[1.5rem]">New Rule</div>
         </div>
-        <div className="flex flex-col w-full h-full justify-center items-center border border-red-500">
+        <div className="flex flex-col w-full h-full justify-center items-center ">
           <div className="relative w-[99%] flex flex-col">
             <div className="text-sm text-[#E10808] absolute  -top-6">
               {error}

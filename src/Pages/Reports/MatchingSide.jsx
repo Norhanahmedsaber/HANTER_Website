@@ -1,13 +1,13 @@
 import React from "react";
 
-export default function MatchingSide() {
+export default function MatchingSide({ruleName , filePath ,  line , col }) {
   return (
     <div className="flex justify-center mt-[1.25rem] ">
       <div className="w-[95%] h-[20rem] rounded-[0.625rem] bg-[#fff] overflow-scroll">
         <div className="h-[5rem] border-b-[0.25px]  border-b-[#8F8C8C] flex justify-between ">
           <div className="flex flex-col w-[60%] ">
             <div className="text-[1.25rem] text-[#000] font-sem2 pl-[0.88rem]">
-              Sql Injection
+              {ruleName}
             </div>
             <div
               className="px-[0.88rem] text-[0.9rem] w-full overflow-hidden"
@@ -44,7 +44,7 @@ export default function MatchingSide() {
           </div>
         </div>
         <div className="w-full h-[1.9625rem] pl-4 border border-b-[#8F8C8C]">
-          tototooooooooooooo
+          {filePath}
         </div>
       </div>
     </div>
