@@ -3,8 +3,9 @@ import Modal from 'react-modal'
 import config from '../../../config'
 import Cookies from 'js-cookie'
 import { Oval } from 'react-loader-spinner'
-
+import { useNavigate } from 'react-router-dom'
 export default function GithubAuth({ isOpen, setIsOpen }) {
+    const nav = useNavigate()
     const [username, setUsername] = useState("")
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState("")

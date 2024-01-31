@@ -27,7 +27,7 @@ function NoRepo() {
     },[])
     return (
         <div className='flex h-full w-full flex-col justify-center items-center'>
-            <GithubAuth isOpen={authModal} setIsOpen={setAuthModal} />
+            <GithubAuth checkAuth={checkAuth} isOpen={authModal} setIsOpen={setAuthModal} />
             <img src={'../../../public/ghost1.png'} className=' w-[calc(0.75*12.5rem)] h-[calc(0.75*12.5rem)]'/>
             <div className=' flex flex-col justify-center items-center mt-[1.25rem]'>
                 <div className='text-[2rem] mt-[1.5rem]'>Your Github Account isn't Connected</div>
