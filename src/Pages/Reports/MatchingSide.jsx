@@ -1,14 +1,20 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Report from "./Report";
-export default function MatchingSide({ reportsArr, projectRules, lowSeverityCheck, highSeverityCheck, meduiemSeverityCheck }) {
+
+export default function MatchingSide({ reportsArr, projectRules, lowSeverityCheck, highSeverityCheck, meduiemSeverityCheck, url }) {
   function description(arr) {
     let rules = []
     arr.map((option) => rules.push(arr.url))
     return rules
   }
+  
+  function goToRepo(filePath, line) {
+    // console.log(url +'/blob/master/' + filePath + '#L' + line, '_blank')
+    window.open(url +'/blob/master/' + filePath + '#L' + line, '_blank')
+  }
   return (
     <div className="flex justify-center mt-[1.25rem] ">
-      <div className="w-[95%] h-[20rem] rounded-[0.625rem] bg-[#fff] overflow-scroll">
+      <div className="w-[95%] h-[20rem] rounded-[0.625rem] bg-[#fff] overflow">
         <div className="h-[5rem] border-b-[0.25px]  border-b-[#8F8C8C] flex justify-between ">
           <div className="flex flex-col w-[60%] ">
             <div className="text-[1.25rem] text-[#000] font-sem2 pl-[0.88rem]">
@@ -20,11 +26,7 @@ export default function MatchingSide({ reportsArr, projectRules, lowSeverityChec
                 "Detected a sequelize statement that is tainted by user-input. This could lead to SQL injection if the variable is user-controlled and is not properly sanitized. In order to prevent SQL injection, it is recommended to use"
               }
             >
-              Detected a sequelize statement that is tainted by user-input. This
-              could lead to SQL injection if the variable is user-controlled and
-              is not properly sanitized. In order to prevent SQL injection, it
-              is recommended to use
-
+              {reportsArr.reports[0].message}
             </div>
           </div>
           <div className="flex  justify-between items-center w-[30%]">
@@ -49,9 +51,11 @@ export default function MatchingSide({ reportsArr, projectRules, lowSeverityChec
             </div>
           </div>
         </div>
-        {
-          reportsArr.reports.map((report) => <Report filePath={report.filepath} line={report.line} col={report.col} />)
-        }
+        <div className="overflow-y-scroll h-[70%]">
+          {
+            reportsArr.reports.map((report) => <Report goToRepo={goToRepo} filePath={report.filepath} line={report.line} col={report.col} />)
+          }
+        </div>
       </div>
     </div>
   );
