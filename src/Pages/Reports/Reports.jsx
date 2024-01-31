@@ -1,4 +1,4 @@
-import React, { useEffect , useState} from "react";
+import React, { useEffect, useState } from "react";
 import Sidebar from "../../Components/Sidebar/Sidebar";
 import ProjectBar from "./ProjectBar";
 import MatchingSide from "./MatchingSide";
@@ -7,31 +7,49 @@ import Cookies from "js-cookie";
 import { useParams } from "react-router-dom";
 
 export default function Reports() {
-  const {id} = useParams()
+  const { id } = useParams()
   const [error, setError] = useState("")
-  const [reports , setReports] = useState([])
+  const [reports, setReports] = useState([])
+  const [projectRules, setProjectRules] = useState([])
+  function getProjectRules() {
+    fetch(config.BASE_URL + 'project_rules/' + id, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer " + Cookies.get('token')
+      }
+    }).then(response => response.json())
+      .then((result) => {
+        if (result.message) {
 
-  function loadReports()
-  {   
-      fetch(config.BASE_URL+'/reports/'+id,{
-        method:"GET",
-        headers:{
-          "Content-Type":"application/json",
-          "Authorization":"Bearer "+Cookies.get('token')
         }
-      }).then(response => response.json())
-      .then((result)=>{
-        if(result.message){
+        else {
+          setProjectRules(result)
+        }
+      })
+  }
+
+
+  function loadReports() {
+    fetch(config.BASE_URL + '/reports/' + id, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer " + Cookies.get('token')
+      }
+    }).then(response => response.json())
+      .then((result) => {
+        if (result.message) {
           setError(result.message)
-        }else{
+        } else {
           console.log(result)
           setReports(result)
         }
       })
   }
-  useEffect(()=>{
+  useEffect(() => {
     loadReports()
-  },[])
+  }, [])
   return (
     <div className="flex justify-start w-screen h-screen items-start">
       <Sidebar />
@@ -67,7 +85,7 @@ export default function Reports() {
               </div>
             </div>
             {
-              reports.map((report)=> <MatchingSide reports={report} />)
+              reports.map((report) => <MatchingSide reportsArr={report} />)
             }
           </div>
         </div>
