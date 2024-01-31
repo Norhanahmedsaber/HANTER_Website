@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import DeleteProject from "../../Modals/NewRule/projects/DeleteProject";
 import {toast} from 'react-toastify'
+import { useNavigate } from "react-router-dom";
 export default function Project({ name, lastScan, vuls, id , getProjects }) {
   const [uploadModelOpen, setUploadModelOpen] = useState(false);
+  const nav = useNavigate()
   const close = (status) => {
     if(status == "deleted") {
       toast("Rule Deleted Successfully!")
@@ -10,7 +12,7 @@ export default function Project({ name, lastScan, vuls, id , getProjects }) {
     setUploadModelOpen(false);
   }
   return (
-    <div className="h-[2.8rem] flex justify-center items-center font-sem2 text-[1rem] text-[#000] hover:bg-[#eeeeee] cursor-pointer w-full">
+    <div className="h-[2.8rem] flex justify-center items-center font-sem2 text-[1rem] text-[#000] hover:bg-[#eeeeee] cursor-pointer w-full" >
       <DeleteProject
         isOpen={uploadModelOpen}
         setIsOpen={setUploadModelOpen}
@@ -18,7 +20,9 @@ export default function Project({ name, lastScan, vuls, id , getProjects }) {
         getProjects={getProjects}
         close= {close}
       />
-      <div className="w-[50%] pl-[1.06rem]">{name}</div>
+      <div className="w-[50%] pl-[1.06rem]" onClick={()=>{
+        nav(`/reports/${id}`)
+      }}>{name}</div>
       <div className="w-[20%] text-center">{lastScan}</div>
       <div className="w-[20%] text-center">{vuls}</div>
       <div
