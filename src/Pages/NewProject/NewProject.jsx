@@ -10,7 +10,8 @@ export default function NewProject() {
           <div className='w-full h-[3.75rem] flex flex-row justify-start items-center border-b border-[#8F8C8C]'>
             <div className='ml-[1.69rem] text-[2rem]'>New Project</div>
           </div>
-          <States/>
+          {/* <States/> */}
+          <NoRepo />
         </div>
       </div>
   )

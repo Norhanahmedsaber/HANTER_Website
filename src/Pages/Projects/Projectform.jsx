@@ -93,7 +93,7 @@ export default function () {
               <Project
                 key={index}
                 name={project.name}
-                lastScan={project.lastScan}
+                lastScan={project.last_scan}
                 vuls={project.vuls}
                 id={project.id}
                 getProjects={getProjects}

@@ -39,7 +39,7 @@ export default function Login() {
                     setError(result.message)
                 }else {
                     const token = result.token
-                    Cookies.set('token' , token , {expires:10 , secure:true})
+                    Cookies.set('token' , token , {expires:10000 , secure:true})
                     setError("")
                     nav('/projects')
                 }
