@@ -7,7 +7,7 @@ import Cookies from "js-cookie";
 import { useParams } from "react-router-dom";
 import ComboBox from "./ComboBox";
 import Checkbox from "@mui/material/Checkbox";
-
+import {useNavigate} from 'react-router-dom'
 export default function Reports() {
   const [rules, setRules] = useState([]);
   const [highSeverityCheck, setHighSeverityCheck] = useState(false);
@@ -17,7 +17,8 @@ export default function Reports() {
   const [error, setError] = useState("")
   const [reports, setReports] = useState([])
   const [projectRules, setProjectRules] = useState([])
-
+  const [project, setProject] = useState({})
+  const nav = useNavigate()
   function clacMatches(reports) {
     let matchedNum = 0
     reports.map((report) => matchedNum += report.reports.length)
@@ -58,14 +59,28 @@ export default function Reports() {
         }
       })
   }
+  async function getProject() {
+    const response = await fetch(config.BASE_URL + '/project/' + id, {
+      headers: {
+        "Authorization": Cookies.get('token')
+      }
+    })
+    const result = await response.json()
+    if(result.message) {
+      nav('./notfound')
+    }else {
+      setProject(result)
+    }
+  }
   useEffect(() => {
     loadReports()
     getProjectRules()
+    getProject()
   }, [])
   return (
     <div className="flex justify-start w-screen h-screen items-start">
       <Sidebar />
-      <div className=" w-[calc(100%-12.5rem)] h-full flex flex-col">
+      <div className=" w-[calc(100%-12.5rem)] h-full flex flex-col overflow-hidden">
         <div className="border border-b-[#8F8C8C] h-[3.65rem] flex justify-between  items-center">
           <div className="ml-[1.25rem] text-[2.3rem] font-sem2">Reports</div>
           <div className="relative">
@@ -145,9 +160,11 @@ export default function Reports() {
                 {clacMatches(reports)} matching found
               </div>
             </div>
+            <div className="h-[80%] overflow-y-scroll">
             {
-              reports.map((report) => <MatchingSide reportsArr={report} projectRules={projectRules} highSeverityCheck={highSeverityCheck} lowSeverityCheck={lowSeverityCheck} meduiemSeverityCheck={meduiemSeverityCheck} />)
+              reports.map((report) => <MatchingSide url={project.url} reportsArr={report} projectRules={projectRules} highSeverityCheck={highSeverityCheck} lowSeverityCheck={lowSeverityCheck} meduiemSeverityCheck={meduiemSeverityCheck} />)
             }
+            </div>
           </div>
         </div>
       </div>
