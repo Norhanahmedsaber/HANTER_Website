@@ -30,10 +30,13 @@ export default function Playground() {
     if (result.message) {
       alert(result.message)
     } else {
-      console.log(result)
       setReports(result)
     }
   }
+  useEffect(() => {
+    // const timeOutId = setTimeout(() => run(), 500);
+    // return () => clearTimeout(timeOutId);
+  })
   useEffect(() => {
     if (Cookies.get("token")) {
       setIsAuth(true);
@@ -46,7 +49,7 @@ export default function Playground() {
     setRule(data);
   }
   async function downloadYamlFile() {
-    const yamlContent = content;
+    const yamlContent = rule;
     const blob = new Blob([yamlContent], { type: "application/yaml" });
     saveAs(blob, "rule.yml"); //name of the file instead of rule.yml
   }

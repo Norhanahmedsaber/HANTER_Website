@@ -11,7 +11,7 @@ function NotFound() {
                     <div className='flex flex-col justify-center items-center w-1/2'>
                         <div>Error 404</div>
                         <div>Page not found</div>
-                        <Button className="bg-red-500 p-5 rounded-md cursor-pointer" text={'Back to homepage'} path={'/Home'}/>
+                        <Button className="bg-red-500 p-5 rounded-md cursor-pointer" text={'Back to homepage'} path={'/projects'}/>
                     </div>
                 </div>
             </div>
