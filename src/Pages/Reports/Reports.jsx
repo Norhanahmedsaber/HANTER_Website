@@ -4,15 +4,16 @@ import ProjectBar from "./ProjectBar";
 import MatchingSide from "./MatchingSide";
 import config from "../../../config";
 import Cookies from "js-cookie";
+import { useParams } from "react-router-dom";
 
-export default function Reports(projectId) {
-  
+export default function Reports() {
+  const {id} = useParams()
   const [error, setError] = useState("")
   const [reports , setReports] = useState([])
 
   function loadReports()
-  {
-      fetch(config.BASE_URL+'/reports'+projectId,{
+  {   
+      fetch(config.BASE_URL+'/reports/'+id,{
         method:"GET",
         headers:{
           "Content-Type":"application/json",
@@ -23,7 +24,8 @@ export default function Reports(projectId) {
         if(result.message){
           setError(result.message)
         }else{
-          setReports(reports)
+          console.log(result)
+          setReports(result)
         }
       })
   }
@@ -65,9 +67,8 @@ export default function Reports(projectId) {
               </div>
             </div>
             {
-              reports.map((report)=> <MatchingSide ruleName={report.rule_name} filepath={report.filepath} line={report.line} col={report.col}/>)
+              reports.map((report)=> <MatchingSide reports={report} />)
             }
-            <MatchingSide />
           </div>
         </div>
       </div>
