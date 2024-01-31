@@ -50,7 +50,7 @@ export default function Router() {
       element: <NewProject />,
     },
     {
-      path: "/reports/:id",
+      path: "/reports/:name/:id",
       element: <Reports />,
     },
     {
