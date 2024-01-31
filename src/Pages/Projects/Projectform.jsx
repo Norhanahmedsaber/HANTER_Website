@@ -37,7 +37,7 @@ export default function () {
   }, []);
   return (
     <div className="flex flex-col justify-start items-center w-[calc(100%-12.5rem)] h-full">
-      <AddProject isOpen={addProjectModal} setIsOpen={setAddProjectModal} />
+      <AddProject  isOpen={addProjectModal} setIsOpen={setAddProjectModal}  />
       <div className="relative flex items-center h-[4.375rem] w-full bg-[#F8F9FA] ">
         <div className="text-[#000] font-sem2 font-bold text-[2rem] ml-[1.94rem] mr-[7.5rem]">
           Projects

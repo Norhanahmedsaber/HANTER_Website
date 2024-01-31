@@ -42,6 +42,7 @@ export default function AddProject({ isOpen, setIsOpen }) {
             className="bg-[#FFF] flex flex-col justify-center items-center h-[15.75rem] w-[17.5rem] bg-opacity-70 text-black hover:cursor-pointer rounded-[1.25rem]"
             onClick={() => {
               nav('../new_project')
+              
             }}
           >
             <img
