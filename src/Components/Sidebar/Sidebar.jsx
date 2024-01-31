@@ -4,8 +4,10 @@ import config from "../../../config";
 import Cookies from "js-cookie";
 import DropDownButton from "../DropDownButton";
 import {useNavigate} from 'react-router-dom'
+import GithubAuth from "../../Modals/Github/GithubAuth";
 export const Sidebar = ({ selected }) => {
   const [user, setUser] = useState("");
+  const [authModal, setAuthModal] = useState(false)
   const nav = useNavigate()
   function signOut () {
     Cookies.remove('token')
@@ -33,6 +35,7 @@ export const Sidebar = ({ selected }) => {
   }, []);
   return (
     <div className="h-full w-[12.5rem] flex flex-col justify-start items-start bg-primary">
+      <GithubAuth isOpen={authModal} setIsOpen={setAuthModal} />
       <div className="w-full h-[4.375rem] flex justify-center items-center border-b">
         <img
           src="../../../public/menu.png"
@@ -42,7 +45,7 @@ export const Sidebar = ({ selected }) => {
           {user.email}
         </div>
         <DropDownButton
-          options={[{ innerText: 'Sign Out', action: () => { signOut(true) } }]}
+          options={[{ innerText: 'Change Github Username', action: () => { setAuthModal(true) } }, { innerText: 'Sign Out', action: () => { signOut(true) } }]}
         >
           <img
             src="../../../public/down-arrow.png"
