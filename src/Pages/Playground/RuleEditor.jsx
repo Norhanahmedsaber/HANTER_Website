@@ -6,6 +6,7 @@ import CodeViewer from './CodeViewer'
 
 export default function RuleEditor({ content, setContent }) {
   const [selectedTab, setSelectedTab] = useState(2)
+  console.log(content)
   return (
     <div className='w-[40%] h-[calc(100%-1.25rem)] flex flex-col justify-start ml-[0.62rem] rounded-t-[0.625rem] font-sem2'>
       <div className='w-full h-[3.75rem] justify-start items-center  rounded-t-[0.625rem] bg-primary'>

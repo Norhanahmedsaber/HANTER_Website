@@ -3,6 +3,7 @@ import config from '../../../config'
 import Cookies from 'js-cookie'
 import { Oval } from 'react-loader-spinner'
 import TransferRule from '../../Modals/Playground/transferRule'
+import PleaseSignIn from './PleaseSignIn'
 export default function ListRules({ transferRule }) {
     const [search, setSearch] = useState("")
     const [selectedTab, setSelectedTab] = useState(1) // system = 1 , my-rules = 2
@@ -10,7 +11,7 @@ export default function ListRules({ transferRule }) {
     const [loading, setLoading] = useState(true)
     const [id, setId] = useState(0)
     const [isTransferModalOpen, setTransferModalOpen] = useState(false)
-
+    const [loggedIn,setLoggedIn]=useState(false)
     async function loadRules() {
         setLoading(true)
         if (selectedTab == 1) {
@@ -30,6 +31,7 @@ export default function ListRules({ transferRule }) {
             const result = await response.json()
             if (result.message) {
             } else {
+                console.log(result)
                 setRules(result)
             }
         }
@@ -44,7 +46,21 @@ export default function ListRules({ transferRule }) {
             transferRule(data)
         }
     }
+    async function getuser() {
+        const reponse= await fetch(config.BASE_URL+'/profile',{
+          headers:{
+            Authorization:Cookies.get('token'),
+          }
+        })
+        const result = await reponse.json()
+        if(result.message){
+      
+        }else {
+            setLoggedIn(true)
+        }
+        }
     useEffect(() => {
+        getuser()
         loadRules()
     }, [selectedTab])
     return (
@@ -103,18 +119,33 @@ export default function ListRules({ transferRule }) {
                         />
                     </div>
                 ) : (
-                    <div className='w-full flex flex-col justify-start items-start mt-[0.9rem] h-[70%] overflow-y-scroll'>
-                        {rules.map((rule, index) => {
-                            return (
-                                <div key={index} onClick={() => {
-                                    setId(rule.id)
-                                    setTransferModalOpen(true)
-                                }} className=' w-[80%] px-1 mb-[0.2rem] ml-4 flex items-center hover:bg-[#D9D9D9] rounded-[0.625rem]'>
-                                    <img src={'../../../public/file1.png'} className='w-[1.2rem] h-[1.2rem]'></img>
-                                    <div className="list-rules-rule text-[0.8rem]" key={index}>{rule.name}</div>
-                                </div>
-                            )
-                        })}
+                    <div>
+                    {selectedTab==1&&(<div className='w-full flex flex-col justify-start items-start mt-[0.9rem] h-[70%] overflow-y-scroll'>
+                    {rules.map((rule, index) => {
+                        return (
+                            <div key={index} onClick={() => {
+                                setId(rule.id)
+                                setTransferModalOpen(true)
+                            }} className=' w-[80%] px-1 mb-[0.2rem] ml-4 flex items-center hover:bg-[#D9D9D9] rounded-[0.625rem]'>
+                                <img src={'../../../public/file1.png'} className='w-[1.2rem] h-[1.2rem]'></img>
+                                <div className="list-rules-rule text-[0.8rem]" key={index}>{rule.name}</div>
+                            </div>
+                        )
+                    })}
+                </div>)}
+                {selectedTab==2&&(<div>{loggedIn?(<div className='w-full flex flex-col justify-start items-start mt-[0.9rem] h-[70%] overflow-y-scroll'>
+                {rules.map((rule, index) => {
+                    return (
+                        <div key={index} onClick={() => {
+                            setId(rule.id)
+                            setTransferModalOpen(true)
+                        }} className=' w-[80%] px-1 mb-[0.2rem] ml-4 flex items-center hover:bg-[#D9D9D9] rounded-[0.625rem]'>
+                            <img src={'../../../public/file1.png'} className='w-[1.2rem] h-[1.2rem]'></img>
+                            <div className="list-rules-rule text-[0.8rem]" key={index}>{rule.name}</div>
+                        </div>
+                    )
+                })}
+            </div>):(<PleaseSignIn></PleaseSignIn>)}</div>)}
                     </div>
                 )}
             </div>
