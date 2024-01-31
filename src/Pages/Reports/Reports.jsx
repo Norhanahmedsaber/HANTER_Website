@@ -5,14 +5,21 @@ import MatchingSide from "./MatchingSide";
 import config from "../../../config";
 import Cookies from "js-cookie";
 import { useParams } from "react-router-dom";
+import { rule } from "postcss";
 
 export default function Reports() {
   const { id } = useParams()
   const [error, setError] = useState("")
   const [reports, setReports] = useState([])
   const [projectRules, setProjectRules] = useState([])
+
+  function clacMatches(reports) {
+    let matchedNum = 0
+    reports.map((report) => matchedNum += report.reports.length)
+    return matchedNum
+  }
   function getProjectRules() {
-    fetch(config.BASE_URL + 'project_rules/' + id, {
+    fetch(config.BASE_URL + '/project_rules/' + id, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -42,13 +49,13 @@ export default function Reports() {
         if (result.message) {
           setError(result.message)
         } else {
-          console.log(result)
           setReports(result)
         }
       })
   }
   useEffect(() => {
     loadReports()
+    getProjectRules()
   }, [])
   return (
     <div className="flex justify-start w-screen h-screen items-start">
@@ -76,12 +83,12 @@ export default function Reports() {
         </div>
         <div className="flex w-full h-full bg-[#EAEAEA]">
           <div className="border border-r-[#8F8C8C]">
-            <ProjectBar />
+            <ProjectBar projectRules={projectRules} />
           </div>
           <div className="w-[calc(100%-18.75rem)]  flex flex-col">
             <div className="h-[3.125rem] flex justify-start items-center ">
               <div className="ml-[2.25rem] text-[1.25rem] text-[#000] font-sem2 font-semibold">
-                70 matching found
+                {clacMatches(reports)} matching found
               </div>
             </div>
             {
