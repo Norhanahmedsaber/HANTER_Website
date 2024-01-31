@@ -21,7 +21,7 @@ export default function Project({ name, lastScan, vuls, id, getProjects }) {
         close={close}
       />
       <div className="w-[50%] pl-[1.06rem]" onClick={() => {
-        nav(`/reports/${id}`)
+        nav(`/reports/${name}/${id}`)
       }}>{name}</div>
       <div className="w-[20%] text-center">{lastScan}</div>
       <div className="w-[20%] text-center">{vuls}</div>
