@@ -4,7 +4,6 @@ import Login from "../Pages/Login/Login";
 import SignUp from "../Pages/SignUp/SignUp";
 import Home from "../Pages/Home/Home";
 import NotFound from "../Pages/NotFound/NotFound";
-import Profile from "../Pages/Profile/Profile";
 import Playground from "../Pages/Playground/Playground";
 import NewRule from "../Pages/NewRule/NewRule";
 import ViewRule from "../Pages/ViewRule/ViewRule";
@@ -28,10 +27,6 @@ export default function Router() {
     {
       path: "/signup",
       element: <SignUp />,
-    },
-    {
-      path: "/profile",
-      element: <Profile />,
     },
     {
       path: "/playground",

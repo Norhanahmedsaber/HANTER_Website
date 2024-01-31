@@ -16,7 +16,7 @@ export default function SignUp() {
   useEffect(()=>{
     if(Cookies.get('token'))
       {
-          navigate('/')
+          navigate('/projects')
           navigate(0)
       }else{
           navigate('/signup')
@@ -45,7 +45,7 @@ export default function SignUp() {
               const token = result.token
               Cookies.set('token' , token , {expires:10 , secure:true})
               setError("")
-              navigate("/Profile")
+              navigate("/projects")
             }
             setLoading(false)
       })

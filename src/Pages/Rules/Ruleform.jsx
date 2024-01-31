@@ -102,7 +102,7 @@ export default function Ruleform() {
           <div className="font-bold">
             <div className="h-[3.4rem] rounded-t-[0.625rem] bg-[#EEE] flex justify-center items-center font-sem2 text-[1rem] text-[#000] w-full">
               <div className="w-[50%] pl-[1.06rem]">Rule name</div>
-              <div className="w-[15%] text-center">Last Edit</div>
+              <div className="w-[15%] text-center"></div>
               <div className="w-[15%] text-center">Severity</div>
               <div className="w-[15%] text-center">Private</div>
               <div className="w-[10%]"></div>
@@ -144,7 +144,7 @@ export default function Ruleform() {
           <div className="font-bold">
             <div className="h-[3.4rem] rounded-t-[0.625rem] bg-[#EEE] flex justify-center items-center font-sem2 text-[1rem] text-[#000] w-full">
               <div className="w-[50%] pl-[1.06rem]">Rule name</div>
-              <div className="w-[15%] text-center">Last Edit</div>
+              <div className="w-[15%] text-center"></div>
               <div className="w-[15%] text-center">Severity</div>
               <div className="w-[15%] text-center">Private</div>
               <div className="w-[10%]"></div>
