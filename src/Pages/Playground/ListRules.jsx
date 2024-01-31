@@ -31,7 +31,6 @@ export default function ListRules({ transferRule }) {
             const result = await response.json()
             if (result.message) {
             } else {
-                console.log(result)
                 setRules(result)
             }
         }
@@ -133,7 +132,7 @@ export default function ListRules({ transferRule }) {
                         )
                     })}
                 </div>)}
-                {selectedTab==2&&(<div>{loggedIn?(<div className='w-full flex flex-col justify-start items-start mt-[0.9rem] h-[70%] overflow-y-scroll'>
+                {selectedTab==2&&(<div className='h-[50%] border-red-400'>{loggedIn?(<div className='w-full flex flex-col justify-start items-start mt-[0.9rem] h-[70%] overflow-y-scroll'>
                 {rules.map((rule, index) => {
                     return (
                         <div key={index} onClick={() => {
