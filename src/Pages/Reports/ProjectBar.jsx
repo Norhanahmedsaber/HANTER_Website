@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import ComboBox from "./ComboBox";
 import Checkbox from "@mui/material/Checkbox";
+import config from "../../../config";
 
-export default function ProjectBar() {
-  const options = ["toka", "hussien", "s7s"];
+export default function ProjectBar({ projectRules }) {
   const [rules, setRules] = useState([]);
   const [highSeverityCheck, setHighSeverityCheck] = useState(false);
   const [meduiemSeverityCheck, setMeduimSeverityCheck] = useState(false);
@@ -44,6 +44,7 @@ export default function ProjectBar() {
               sx={{ "& .MuiSvgIcon-root": { fontSize: 14 } }}
               onChange={(e) => {
                 setLowSeverityCheck(e.target.checked);
+                console.log(projectRules)
               }}
             ></Checkbox>
             <div className="rounded-full w-[0.5rem] h-[0.5rem] bg-blue-600"></div>
@@ -55,7 +56,7 @@ export default function ProjectBar() {
         <div className="ml-[1.25rem] text-[1.25rem] text-[#504F4F] font-sem2">
           Rules
         </div>
-        <ComboBox options={options} rules={rules} setRules={setRules} />
+        <ComboBox options={projectRules} rules={rules} setRules={setRules} />
       </div>
     </div>
   );
