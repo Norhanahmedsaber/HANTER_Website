@@ -19,9 +19,8 @@ export default function DeleteProject({ isOpen, setIsOpen, id , getProjects , cl
         if (result.message) {
           getProjects()
           close("deleted")
-          console.log(result.message);
         } else {
-          console.log("ERRORRRRRRR");
+          console.log(result.message);
         }
       });
   }
