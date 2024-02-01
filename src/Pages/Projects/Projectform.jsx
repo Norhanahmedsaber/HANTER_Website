@@ -10,7 +10,14 @@ export default function () {
   const [projects, setProjects] = useState([]);
   const [loading, setloading] = useState(false);
   const [addProjectModal, setAddProjectModal] = useState(false);
-
+  const [search,setSeach]=useState(false)
+  const [searchedProjects,setSearchedProjects]=useState([])
+  async function searching(){
+    setSeach(true)
+    let result=document.getElementById('bar').value
+    let values=projects.filter(proj => proj.name.toLowerCase().includes(result))
+    setSearchedProjects(values)
+  }
   function getProjects(){
     if (!loading) {
       setloading(true);
@@ -44,8 +51,10 @@ export default function () {
         </div>
         <div className="relative">
           <input type="text"
+          id='bar'
             className=" text-[1.25rem] pl-8 pr-4 border border-[#8F8C8C] ml-[1.19rem] w-[29.5rem] h-[2.5rem] rounded-[5.3125rem]"
-            placeholder="Search..." />
+            placeholder="Search..." 
+            onChange={searching}/>
           <div className="absolute inset-y-2 left-4 pl-3  
                             flex items-center  
                             pointer-events-none">
@@ -89,7 +98,7 @@ export default function () {
           </div>
 
           <div className="overflow-y-scroll h-[28rem] border-b border-l">
-            {projects.map((project, index) => (
+            {search?(searchedProjects.map((project, index) => (
               <Project
                 key={index}
                 name={project.name}
@@ -98,7 +107,16 @@ export default function () {
                 id={project.id}
                 getProjects={getProjects}
               />
-            ))}
+            ))):(projects.map((project, index) => (
+              <Project
+                key={index}
+                name={project.name}
+                lastScan={project.last_scan}
+                vuls={project.vuls}
+                id={project.id}
+                getProjects={getProjects}
+              />
+            )))}
           </div>
         </div>
       ) : (
