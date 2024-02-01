@@ -4,14 +4,19 @@ import Cookies from 'js-cookie'
 import { Oval } from 'react-loader-spinner'
 import TransferRule from '../../Modals/Playground/transferRule'
 import PleaseSignIn from './PleaseSignIn'
-export default function ListRules({ transferRule }) {
-    const [search, setSearch] = useState("")
+export default function ListRules({ transferRule, search , setSearch ,searchedRules , setSearchedRules }) {
     const [selectedTab, setSelectedTab] = useState(1) // system = 1 , my-rules = 2
     const [rules, setRules] = useState([])
     const [loading, setLoading] = useState(true)
     const [id, setId] = useState(0)
     const [isTransferModalOpen, setTransferModalOpen] = useState(false)
     const [loggedIn,setLoggedIn]=useState(false)
+    async function searching(){
+        setSearch(true)
+        let result=document.getElementById('bar').value
+        let found=rules.filter(rule=>rule.name.toLowerCase().includes(result))
+        setSearchedRules(found)
+    }
     async function loadRules() {
         setLoading(true)
         if (selectedTab == 1) {
@@ -96,8 +101,10 @@ export default function ListRules({ transferRule }) {
             <div className='w-full bg-[#FFF] h-full flex-col justify-center items-start  '>
                 <div className="relative">
                     <input type="text"
+                        id='bar'
                         className="pl-10 pr-4 py-2 border-2 mt-[0.69rem] ml-[1.19rem] w-[90%] rounded-[5.3125rem] text-sm"
-                        placeholder="Search" />
+                        placeholder="Search"
+                        onChange={searching} />
                     <div className="absolute inset-y-[1.9rem] left-4 pl-3.5  
                     flex items-center  
                     pointer-events-none">
@@ -120,7 +127,7 @@ export default function ListRules({ transferRule }) {
                 ) : (
                     <div>
                     {selectedTab==1&&(<div className='w-full flex flex-col justify-start items-start mt-[0.9rem] h-[70%] overflow-y-scroll'>
-                    {rules.map((rule, index) => {
+                    {!search?(rules.map((rule, index) => {
                         return (
                             <div key={index} onClick={() => {
                                 setId(rule.id)
@@ -130,10 +137,20 @@ export default function ListRules({ transferRule }) {
                                 <div className="list-rules-rule text-[0.8rem]" key={index}>{rule.name}</div>
                             </div>
                         )
-                    })}
+                    })):(searchedRules.map((rule, index) => {
+                        return (
+                            <div key={index} onClick={() => {
+                                setId(rule.id)
+                                setTransferModalOpen(true)
+                            }} className=' w-[80%] px-1 mb-[0.2rem] ml-4 flex items-center hover:bg-[#D9D9D9] rounded-[0.625rem]'>
+                                <img src={'../../../public/file1.png'} className='w-[1.2rem] h-[1.2rem]'></img>
+                                <div className="list-rules-rule text-[0.8rem]" key={index}>{rule.name}</div>
+                            </div>
+                        )
+                    }))}
                 </div>)}
                 {selectedTab==2&&(<div className='h-[50%] border-red-400'>{loggedIn?(<div className='w-full flex flex-col justify-start items-start mt-[0.9rem] h-[70%] overflow-y-scroll'>
-                {rules.map((rule, index) => {
+                {!search?(rules.map((rule, index) => {
                     return (
                         <div key={index} onClick={() => {
                             setId(rule.id)
@@ -143,7 +160,17 @@ export default function ListRules({ transferRule }) {
                             <div className="list-rules-rule text-[0.8rem]" key={index}>{rule.name}</div>
                         </div>
                     )
-                })}
+                })):(searchedRules.map((rule, index) => {
+                    return (
+                        <div key={index} onClick={() => {
+                            setId(rule.id)
+                            setTransferModalOpen(true)
+                        }} className=' w-[80%] px-1 mb-[0.2rem] ml-4 flex items-center hover:bg-[#D9D9D9] rounded-[0.625rem]'>
+                            <img src={'../../../public/file1.png'} className='w-[1.2rem] h-[1.2rem]'></img>
+                            <div className="list-rules-rule text-[0.8rem]" key={index}>{rule.name}</div>
+                        </div>
+                    )
+                }))}
             </div>):(<PleaseSignIn></PleaseSignIn>)}</div>)}
                     </div>
                 )}
