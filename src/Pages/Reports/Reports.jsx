@@ -17,9 +17,9 @@ export default function Reports() {
   const [error, setError] = useState("")
   const [reports, setReports] = useState([])
   const [projectRules, setProjectRules] = useState([])
-
   const [project, setProject] = useState({})
   const nav = useNavigate()
+
   function clacMatches(reports) {
     let matchedNum = 0
     reports.map((report) => matchedNum += report.reports.length)
