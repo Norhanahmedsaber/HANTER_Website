@@ -127,41 +127,21 @@ export default function Reports() {
                   Severity
                 </div>
                 <div className="flex justify-between items-center">
-                  <div className=" flex justify-start items-center w-[5rem] h-[1.25163rem] bg-[#FFF] rounded-[3.125rem] border-[0.25px] border-[#8F8C8C] ml-[1.25rem] cursor-pointer">
-                    <Checkbox
-                      sx={{ "& .MuiSvgIcon-root": { fontSize: 14 } }}
-                      onChange={(e) => {
-                        setHighSeverityCheck(e.target.checked);
-                      }}
-                    ></Checkbox>
+                  <div className=" flex justify-center font-bold items-center w-[5rem] h-[1.25163rem] bg-[#FFF] rounded-[3.125rem] border-[0.25px] border-[#8F8C8C] ml-[1.25rem] cursor-pointer">
                     <div className="rounded-full w-[0.5rem] h-[0.5rem] bg-red-500 "></div>
-                    <div className="text-[0.825rem] mb-[0.13rem] ">Error</div>
+                    <div className="text-[0.825rem] mb-[0.13rem] ml-2 ">Error</div>
                   </div>
-                  <div className=" flex justify-start items-center w-[5.9rem] h-[1.25163rem] bg-[#FFF] rounded-[3.125rem] border-[0.25px] border-[#8F8C8C] cursor-pointer">
-                    <Checkbox
-                      sx={{ "& .MuiSvgIcon-root": { fontSize: 14 } }}
-                      onChange={(e) => {
-                        setMeduimSeverityCheck(e.target.checked);
-                        console.log(rules)
-                      }}
-                    ></Checkbox>
+                  <div className=" flex justify-center items-center w-[5.9rem] h-[1.25163rem] bg-[#FFF] rounded-[3.125rem] border-[0.25px] border-[#8F8C8C] cursor-pointer">
                     <div className="rounded-full w-[0.5rem] h-[0.5rem] bg-yellow-400 "></div>
-                    <div className="text-[0.825rem] mb-[0.13rem] ">Warning</div>
+                    <div className="text-[0.825rem] mb-[0.13rem] ml-2 font-bold">Warning</div>
                   </div>
-                  <div className=" flex justify-start items-center w-[5rem] h-[1.25163rem] bg-[#FFF] rounded-[3.125rem] border-[0.25px] border-[#8F8C8C] mr-[1.25rem] cursor-pointer">
-                    <Checkbox
-                      sx={{ "& .MuiSvgIcon-root": { fontSize: 14 } }}
-                      onChange={(e) => {
-                        setLowSeverityCheck(e.target.checked);
-                        console.log(projectRules)
-                      }}
-                    ></Checkbox>
+                  <div className=" flex justify-center items-center w-[5rem] h-[1.25163rem] bg-[#FFF] rounded-[3.125rem] border-[0.25px] border-[#8F8C8C] mr-[1.25rem] cursor-pointer">
                     <div className="rounded-full w-[0.5rem] h-[0.5rem] bg-blue-600"></div>
-                    <div className="text-[0.825rem] mb-[0.13rem] ">Info</div>
+                    <div className="text-[0.825rem] mb-[0.13rem] ml-2 font-bold">Info</div>
                   </div>
                 </div>
               </div>
-              <div className="flex flex-col border mb-[3rem] ">
+              <div className="flex flex-col mb-[3rem] ">
                 <div className="ml-[1.25rem] text-[1.25rem] text-[#504F4F] font-sem2">
                   Rules
                 </div>

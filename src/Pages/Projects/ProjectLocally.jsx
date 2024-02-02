@@ -18,6 +18,15 @@ function ProjectLocally() {
                     <div className='flex flex-col justify-start items-start'>
                         <Clipboard text1={"Download package"} text2={"npm install hanter"} />
                     </div>
+                    <div className='flex flex-col justify-start items-start mt-14'>
+                    <div className='w-full'>
+                        
+                    </div>
+                        <Clipboard text1={"Create a configuration file inside your project"} text2={"npx hanter init"} />
+                    </div>
+                    <div className='flex flex-col justify-start items-start mt-14'>
+                        <Clipboard text1={"Run the Analysis"} text2={"npx hanter"} />
+                    </div>
                 </div>
             </div>
         </div>
