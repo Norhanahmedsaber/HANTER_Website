@@ -23,7 +23,7 @@ function CreateFlow2({selectedRules,setSelectedRules}) {
         if (result1.message) {
         } else {
             setSystemRules(result1)
-
+            
         }
         const response2 = await fetch(config.BASE_URL + '/rules', {
             headers: {
@@ -40,6 +40,11 @@ function CreateFlow2({selectedRules,setSelectedRules}) {
     useEffect(() => {
         loadRules()
     }, [])
+    useEffect(() => {
+        const systemRulesIds = systemRules.map((r) => r.id)
+        setSelectedRules(systemRulesIds)
+
+    }, [systemRules])
     return (
         <div className=' w-[53.12rem] h-[25rem] flex  flex-col justify-center items-center'>
             <div className="w-full flex justify-between items-center">
