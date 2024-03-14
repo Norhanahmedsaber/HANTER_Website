@@ -4,14 +4,8 @@ import config from '../../../config'
 import Cookies from 'js-cookie'
 import { Navigate } from 'react-router-dom'
 
-function CreateFlow1({selectedRepo,setSelectedRepo,search,setSearch,searchedRepo,setSearchedRepos}) {
+function CreateFlow1({selectedRepo,setSelectedRepo}) {
     const [repos, setRepos] = useState([])
-    async function searching(){
-        setSearch(true)
-        let result=document.getElementById('bar').value
-        let found=repos.filter(repo => repo.name.toLowerCase().includes(result))
-        setSearchedRepos(found)
-    }
     async function loadRepos(){
         const response = await fetch(config.BASE_URL + '/user/repos', {
             headers:{
@@ -39,7 +33,7 @@ function CreateFlow1({selectedRepo,setSelectedRepo,search,setSearch,searchedRepo
                         type="text"
                         class="pl-10 pr-4 py-2 border-2 ml-[1.19rem] w-[26.5625rem] rounded-[5.3125rem]"
                         placeholder="Search"
-                        onChange={searching()} />
+                         />
                     <div class="absolute inset-y-2 left-4 pl-3.5  
                             flex items-center  
                             pointer-events-none">
@@ -49,21 +43,15 @@ function CreateFlow1({selectedRepo,setSelectedRepo,search,setSearch,searchedRepo
             </div>
             <div className='w-full h-[20rem] flex flex-col overflow-y-scroll mt-6'>
                 <div>
-                    {search?(searchedRepo.map((r) => {
-                        if(selectedRepo.id===r.id){
-                            return <Repo selected={true} name={r.name} date={r.date} privacy={r.private} url={r.url} id={r.id} />
-                        }
-                        else{
-                            return <Repo name={r.name} date={r.date} privacy={r.private} url={r.url} id={r.id} setSelectedRepo={setSelectedRepo} />
-                        }
-                    })):(repos.map((r) => {
-                        if(selectedRepo.id===r.id){
-                            return <Repo selected={true} name={r.name} date={r.date} privacy={r.private} url={r.url} id={r.id} />
-                        }
-                        else{
-                            return <Repo name={r.name} date={r.date} privacy={r.private} url={r.url} id={r.id} setSelectedRepo={setSelectedRepo} />
-                        }
-                    }))
+                    {
+                        repos.map((r) => {
+                            if(selectedRepo.id===r.id){
+                                return <Repo selected={true} name={r.name} date={r.date} privacy={r.private} url={r.url} id={r.id} />
+                            }
+                            else{
+                                return <Repo name={r.name} date={r.date} privacy={r.private} url={r.url} id={r.id} setSelectedRepo={setSelectedRepo} />
+                            }
+                        })
                     }
                 </div>
             </div>

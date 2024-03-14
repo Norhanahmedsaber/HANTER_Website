@@ -7,8 +7,6 @@ import Cookies from 'js-cookie'
 import { useState } from 'react'
 export default function NewProject() {
 const [githubAuth,setGithubAuth]=useState(false)
-const [search , setSearch] = useState(false)
-const [searchedRepo , setSearchedRepos] = useState([])
   async function getGithubAuth(){
   const reponse= await fetch(config.BASE_URL+'/profile',{
     headers:{
@@ -35,7 +33,7 @@ return (
           <div className='w-full h-[3.75rem] flex flex-row justify-start items-center border-b border-[#8F8C8C]'>
             <div className='ml-[1.69rem] text-[2rem]'>New Project</div>
           </div>
-          {githubAuth?(<States search={search} setSearch={setSearch} searchedRepo={searchedRepo} setSearchedRepos={setSearchedRepos}/>):(<NoRepo/>)}
+          {githubAuth?(<States />):(<NoRepo/>)}
         </div>
       </div>
   )

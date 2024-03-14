@@ -10,12 +10,12 @@ import { useEffect, useState } from "react";
 import Cookies from "js-cookie";
 import config from "../../../config";
 export default function Playground() {
-  const [rule, setRule] = useState("");
+  const [rule, setRule] = useState("id: your-rule-name\nmessage: Type the message you want to appear upon matching\nseverity: Error\npattern: your-code");
   const [source, setSource] = useState("");
   const [isAuth, setIsAuth] = useState(false);
   const [reports, setReports] = useState([])
-  const [search , setSearch] = useState(false)
-  const [searchedRules , setSearchedRules] = useState([])
+  const [search, setSearch] = useState(false)
+  const [searchedRules, setSearchedRules] = useState([])
   const nav = useNavigate();
   const run = async () => {
     const response = await fetch(config.BASE_URL + '/playground', {
@@ -59,7 +59,7 @@ export default function Playground() {
     <div className="w-screen h-screen flex justify-start items-center flex-col font-sem2">
       <Navbar selected={"playground"} />
       <div className="w-full h-[calc(100%-4.35rem)] bg-secondary pt-[1rem] flex justify-center items-center">
-        <ListRules transferRule={transferRule} search={search} setSearch={setSearch} searchedRules={searchedRules} setSearchedRules={setSearchedRules}/>
+        <ListRules transferRule={transferRule} search={search} setSearch={setSearch} searchedRules={searchedRules} setSearchedRules={setSearchedRules} />
         <RuleEditor content={rule} setContent={transferRule} />
         <div className="w-[40%] h-[calc(100%-1.25rem)] flex flex-col justify-start ml-[0.62rem] rounded-t[0.625rem] font-sem2">
           <div className="w[38.375rem] h-[3.75rem] justify-start items-cneter  rounded-t-[0.625rem] bg-primary">
@@ -97,18 +97,24 @@ export default function Playground() {
               Run
             </div>
           </div>
-          <div className="bg-white flex-row mt-[0.62rem] w-full h-[13rem] justify-center items-center">
+          <div className="bg-white flex-row mt-[0.62rem] w-full h-[13rem] justify-center items-center  overflow-y-scroll">
             <div className="text-[1.25rem]  flex justify-center items-center border-b-2 border-b-black">
               Results
             </div>
-            <div className="pt-3 pl-3">
-              {
-              reports.map((r) => (
-                <div>
-                  <div>Line: {r.line}</div>
-                  <div>{r.message}</div>
-                </div>))
-            }</div>
+            {reports.length > 0 ? (
+              <div className="pt-3 pl-3">
+                {
+                  reports.map((r) => (
+                    <div>
+                      <div className="text-[1.2rem] text-red-600 font-bold">Matched</div>
+                      <div className="text-[1rem]">{r.message}</div>
+                    </div>))
+                }
+              </div>
+            ) : 
+            <div className="font-extrabold text-xl text-green-900 flex justify-center items-center h-[75%]">
+              Your Code doesn't match this Rule.
+            </div>}
           </div>
         </div>
       </div>

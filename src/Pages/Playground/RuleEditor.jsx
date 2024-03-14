@@ -9,7 +9,7 @@ export default function RuleEditor({ content, setContent }) {
   return (
     <div className='w-[40%] h-[calc(100%-1.25rem)] flex flex-col justify-start ml-[0.62rem] rounded-t-[0.625rem] font-sem2'>
       <div className='w-full h-[3.75rem] justify-start items-center  rounded-t-[0.625rem] bg-primary'>
-        <div className=' text-white text-[1.5rem] mt-2 ml-[0.88rem] '>C-string-equality</div>
+        <div className=' text-white text-[1.5rem] mt-2 ml-[0.88rem] '>Rule</div>
       </div>
       <div className='bg-white w-full h-full'>
         <div className='w-full h-[3.125rem] flex justify-center items-center'>
