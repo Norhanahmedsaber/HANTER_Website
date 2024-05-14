@@ -108,7 +108,7 @@ export default function ListRules({ transferRule, search, setSearch, searchedRul
                     <div className="absolute inset-y-[1.9rem] left-4 pl-3.5  
                     flex items-center  
                     pointer-events-none">
-                        <img src={'../../../public/search.png'} className='w-[1.25rem] h-[1.25rem] ' />
+                        <img src={'../../../search.png'} className='w-[1.25rem] h-[1.25rem] ' />
                     </div>
                 </div>
 
@@ -133,7 +133,7 @@ export default function ListRules({ transferRule, search, setSearch, searchedRul
                                         setId(rule.id)
                                         setTransferModalOpen(true)
                                     }} className=' w-[80%] px-1 mb-[0.2rem] ml-4 flex items-center hover:bg-[#D9D9D9] rounded-[0.625rem]'>
-                                        <img src={'../../../public/file1.png'} className='w-[1.2rem] h-[1.2rem]'></img>
+                                        <img src={'../../../file1.png'} className='w-[1.2rem] h-[1.2rem]'></img>
                                         <div className="list-rules-rule text-[0.8rem]" key={index}>{rule.name}</div>
                                     </div>
                                 )
@@ -143,7 +143,7 @@ export default function ListRules({ transferRule, search, setSearch, searchedRul
                                         setId(rule.id)
                                         setTransferModalOpen(true)
                                     }} className=' w-[80%] px-1 mb-[0.2rem] ml-4 flex items-center hover:bg-[#D9D9D9] rounded-[0.625rem]'>
-                                        <img src={'../../../public/file1.png'} className='w-[1.2rem] h-[1.2rem]'></img>
+                                        <img src={'../../../file1.png'} className='w-[1.2rem] h-[1.2rem]'></img>
                                         <div className="list-rules-rule text-[0.8rem]" key={index}>{rule.name}</div>
                                     </div>
                                 )
@@ -156,7 +156,7 @@ export default function ListRules({ transferRule, search, setSearch, searchedRul
                                         setId(rule.id)
                                         setTransferModalOpen(true)
                                     }} className=' w-[80%] px-1 mb-[0.2rem] ml-4 flex items-center hover:bg-[#D9D9D9] rounded-[0.625rem]'>
-                                        <img src={'../../../public/file1.png'} className='w-[1.2rem] h-[1.2rem]'></img>
+                                        <img src={'../../../file1.png'} className='w-[1.2rem] h-[1.2rem]'></img>
                                         <div className="list-rules-rule text-[0.8rem]" key={index}>{rule.name}</div>
                                     </div>
                                 )
@@ -166,7 +166,7 @@ export default function ListRules({ transferRule, search, setSearch, searchedRul
                                         setId(rule.id)
                                         setTransferModalOpen(true)
                                     }} className=' w-[80%] px-1 mb-[0.2rem] ml-4 flex items-center hover:bg-[#D9D9D9] rounded-[0.625rem]'>
-                                        <img src={'../../../public/file1.png'} className='w-[1.2rem] h-[1.2rem]'></img>
+                                        <img src={'../../../file1.png'} className='w-[1.2rem] h-[1.2rem]'></img>
                                         <div className="list-rules-rule text-[0.8rem]" key={index}>{rule.name}</div>
                                     </div>
                                 )

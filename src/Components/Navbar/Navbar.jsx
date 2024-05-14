@@ -9,7 +9,7 @@ function Navbar({ selected }) {
     return (
         <div className="flex w-full h-[4.35rem] items-center justify-between border ">
             <div className=' flex flex-row justify-start items-center ml-[1.5rem]'>
-                <img src={'../../../public/logo2.png'} className=' w-[3rem] h-[3rem] ' />
+                <img src={'../../../logo2.png'} className=' w-[3rem] h-[3rem] ' />
                 <div className='font-Jomolhari text-[1.5rem] ml-[1rem]'>HANTER</div>
             </div>
             <div className='flex flex-row justify-between items-center h-full mb-[2rem] mt-[2rem]'>

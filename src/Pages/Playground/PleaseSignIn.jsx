@@ -5,7 +5,7 @@ function PleaseSignIn() {
     const nav = useNavigate()
     return (
         <div className='flex h-full w-full flex-col justify-center items-center'>
-        <img src={'../../../public/signin.png'} className='mt-[2rem] w-[4rem] h-[4rem]'/>
+        <img src={'../../../signin.png'} className='mt-[2rem] w-[4rem] h-[4rem]'/>
         <div className=' flex flex-col justify-center items-center mt-[1.25rem]'>
             <div className='text-[1.25rem]'>Sign in required </div>
             <div className='text-[1rem] text-center w-[62rem] justify-center items-center'>please sign in <br></br>to view your rules</div>

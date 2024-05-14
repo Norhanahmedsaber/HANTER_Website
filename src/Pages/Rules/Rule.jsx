@@ -18,26 +18,26 @@ export default function Rule({ ruleName, ruleSeverity, rulePublic, uuid, id, get
         <div className='w-[15%] pl-[1rem] text-center'>{ }</div>
         {
           ruleSeverity == 'LOW' ? (<div className='w-[15%] pl-[1.5rem] flex justify-center items-center'>
-            <img src='../../../public/info.png' className='w-[1.5rem] h-[1.5rem]'></img>
+            <img src='../../../info.png' className='w-[1.5rem] h-[1.5rem]'></img>
           </div>)
             : ruleSeverity == 'MEDUIM' ? (<div className='w-[15%] pl-[1.5rem] flex justify-center items-center'>
-              <img src='../../../public/warning.png' className='w-[1.5rem] h-[1.5rem]'></img>
+              <img src='../../../warning.png' className='w-[1.5rem] h-[1.5rem]'></img>
             </div>)
               : (<div className='w-[15%] pl-[1.5rem] flex justify-center items-center'>
-                <img src='../../../public/error.png' className='w-[1.5rem] h-[1.5rem]'></img>
+                <img src='../../../error.png' className='w-[1.5rem] h-[1.5rem]'></img>
               </div>)
         }
         {
 
           rulePublic == 0 ? (<div className='w-[15%] pl-[1.8rem] flex justify-center items-center'>
-            <img src='../../../public/private.png' className='w-[1.5rem] h-[1.5rem]'></img>
+            <img src='../../../private.png' className='w-[1.5rem] h-[1.5rem]'></img>
           </div>)
             : (<div className='w-[15%] pl-[1.8rem] text-center'> - </div>)
         }
 
 
         <div className='w-[10%] flex justify-center cursor-pointer'>
-          <img src="../../../../public/delete.png" className='w-[1.25rem] h-[1.25rem] cursor-pointer' onClick={(e) => {
+          <img src="../../../../delete.png" className='w-[1.25rem] h-[1.25rem] cursor-pointer' onClick={(e) => {
             setUploadModelOpen(true)
           }}></img>
         </div>

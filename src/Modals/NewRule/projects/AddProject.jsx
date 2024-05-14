@@ -28,7 +28,7 @@ export default function AddProject({ isOpen, setIsOpen }) {
           }} className="bg-[#FFF] flex flex-col justify-center items-center h-[15.75rem]  w-[17.5rem] bg-opacity-70 text-black hover:cursor-pointer rounded-[1.25rem]">
             <img
               className="w-[4.375rem] h-[4.6875rem] "
-              src="../../../public/uploadYaml.png"
+              src="../../../uploadYaml.png"
             ></img>
             <div className="font-sem2 mt-[0.31rem] text-[1.5rem]">
               Locally
@@ -47,7 +47,7 @@ export default function AddProject({ isOpen, setIsOpen }) {
           >
             <img
               className="w-[4.375rem] h-[4.6875rem] "
-              src="../../../public/github1.png"
+              src="../../../github1.png"
             ></img>
             <div className="font-sem2 mt-[0.31rem] text-[1.5rem]">
               Github

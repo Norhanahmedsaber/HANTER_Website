@@ -103,11 +103,13 @@ export default function Playground() {
             </div>
             {reports.length > 0 ? (
               <div className="pt-3 pl-3">
+                <div className="text-[1.2rem] text-red-600 font-bold">Matched</div>
                 {
                   reports.map((r) => (
                     <div>
-                      <div className="text-[1.2rem] text-red-600 font-bold">Matched</div>
-                      <div className="text-[1rem]">{r.message}</div>
+                      <div className="text-[1rem]">{r.message} at line: {r.line}</div>
+                      <div className="text-[1rem]"></div>
+                      <div className="text-[1rem]"></div>
                     </div>))
                 }
               </div>

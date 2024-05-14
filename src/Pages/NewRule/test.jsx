@@ -100,7 +100,7 @@ export default function NewRule(props) {
               </div>
               <div className="flex flex-col justify-center items-center">
                 <img
-                  src="../../../public/privacy.png"
+                  src="../../../privacy.png"
                   className="w-[1.5rem] h-[1.5rem] mr-[1rem]"
                 ></img>
                 <Switch
@@ -133,7 +133,7 @@ export default function NewRule(props) {
                 }}
               >
                 <img
-                  src="../../../public/Save.png"
+                  src="../../../Save.png"
                   className="w-[1.2rem] h-[1.2rem]"
                   alt=""
                 />
@@ -146,7 +146,7 @@ export default function NewRule(props) {
                 }}
               >
                 <img
-                  src="../../../public/downloads.png"
+                  src="../../../downloads.png"
                   className="w-[1.2rem] h-[1.2rem]"
                   alt=""
                 />
