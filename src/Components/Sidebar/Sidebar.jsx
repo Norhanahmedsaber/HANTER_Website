@@ -86,14 +86,14 @@ export const Sidebar = ({ selected }) => {
           {selected == "rules" ? (
             <Components
               path={"/rules"}
-              iconPath={"../../../Rules.png"}
+              iconPath={"../../../rules.png"}
               text={"Rules"}
               selected={true}
             />
           ) : (
             <Components
               path={"/rules"}
-              iconPath={"../../../Rules.png"}
+              iconPath={"../../../rules.png"}
               text={"Rules"}
             />
           )}
