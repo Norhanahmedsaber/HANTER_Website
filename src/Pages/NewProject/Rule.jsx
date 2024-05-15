@@ -7,7 +7,7 @@ function Rule({id, name,checked, toggle}) {
                 <input type='checkbox' checked={checked} onChange={()=> {toggle(id)}} className='w-[1.3rem] h-[1.3rem] ' />
             </div>  
             <div className='w-[4%] flex items-center'>    
-              <img src="../../../public/file1.png" className='w-[1.5625rem] h-[1.5625rem]' />
+              <img src="../../../file1.png" className='w-[1.5625rem] h-[1.5625rem]' />
             </div>
             <div className=' text-[1rem]'>{name}</div>
         </div>

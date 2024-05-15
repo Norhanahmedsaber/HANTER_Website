@@ -109,7 +109,7 @@ export default function Reports() {
                           pointer-events-none"
               >
                 <img
-                  src={"../../../public/scan-code.png"}
+                  src={"../../../scan-code.png"}
                   className="w-[1.7rem] h-[1.7rem] "
                 />
               </div>
