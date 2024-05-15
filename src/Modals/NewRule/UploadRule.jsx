@@ -94,7 +94,7 @@ export default function UploadRule({ isOpen, setIsOpen, getRules }) {
                 <div className='relative w-[20.25rem] bg-white rounded-r-[1.25rem] pl-4 text-[0.875rem] flex justify-start items-center'>
                     <div className='flex justify-start items-center'>{selectedFile?.name}</div>
                     <label htmlFor='Res-Text' className='w-[1.5rem] h-[1.5rem] bg-[#8F8C8C] rounded-full absolute right-[0.31rem] top-[0.31rem] flex justify-center items-center cursor-pointer'>
-                        <img src="../../../public/upload.png" className='w-[0.9rem] h-[0.9rem]' alt="" />
+                        <img src="../../../upload.png" className='w-[0.9rem] h-[0.9rem]' alt="" />
                     </label>
                 </div>
             </div>

@@ -49,7 +49,7 @@ export default function Login() {
     }
     return (
         <div className="flex flex-col justify-center items-center h-screen bg-white font-sem2">
-            <img src="../../../public/logo.png" className= "w-[5.875rem] h-[5.6875rem] mt-[1.25rem]" />
+            <img src="../../../logo.png" className= "w-[5.875rem] h-[5.6875rem] mt-[1.25rem]" />
             <div className="text-[1.6875rem]">Sign in to HANTER</div>
             <div className="w-[22.5rem] mt-[1.37rem] text-[#E10808] text-[0.625rem]">{error}</div>
             <LoginForm

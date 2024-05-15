@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import Repo from './Repo.JSX'
+import Repo from './Repo.jsx'
 import config from '../../../config'
 import Cookies from 'js-cookie'
 import { Navigate } from 'react-router-dom'
@@ -37,7 +37,7 @@ function CreateFlow1({selectedRepo,setSelectedRepo}) {
                     <div class="absolute inset-y-2 left-4 pl-3.5  
                             flex items-center  
                             pointer-events-none">
-                        <img src={'../../../public/search.png'} className='w-[1.25rem] h-[1.25rem] ' />
+                        <img src={'../../../search.png'} className='w-[1.25rem] h-[1.25rem] ' />
                     </div>
                 </div>
             </div>

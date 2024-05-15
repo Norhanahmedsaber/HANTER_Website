@@ -35,7 +35,7 @@ function RuleOption({ isOpen, setIsOpen, getRules }) {
                     <div onClick={() => {
                         nav('../new_rule')
                     }} className='bg-[#FFF] flex flex-col justify-center items-center h-[15.75rem]  w-[17.5rem] bg-opacity-70 text-black hover:cursor-pointer rounded-[1.25rem]'>
-                        <img className='w-[4.375rem] h-[4.6875rem] ' src='../../../public/write.png'></img>
+                        <img className='w-[4.375rem] h-[4.6875rem] ' src='../../../write.png'></img>
                         <div className='font-sem2 mt-[0.31rem] text-[1.5rem]'>Write</div>
                         <div className='text-[1rem] mt-[0.63rem] text-center font-sem2'>Write your own rule using <br></br> our rules writer</div>
                     </div>
@@ -44,7 +44,7 @@ function RuleOption({ isOpen, setIsOpen, getRules }) {
                         close()
                         setUploadModalOpen(true)
                     }}>
-                        <img className='w-[4.375rem] h-[4.6875rem] ' src='../../../public/uploadYaml.png'></img>
+                        <img className='w-[4.375rem] h-[4.6875rem] ' src='../../../UploadYaml.png'></img>
                         <div className='font-sem2 mt-[0.31rem] text-[1.5rem]'>Upload</div>
                         <div className='text-[1rem] mt-[0.63rem] text-center font-sem2'>Upload from your device <br></br> (.YML file)</div>
                     </div>

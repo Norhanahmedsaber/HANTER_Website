@@ -8,7 +8,7 @@ function ProjectLocally() {
                 <Sidebar />
             </div>
             <div className='flex h-full w-full flex-col mt-[3rem] justify-start items-center font-sem2 ml-[3.5rem]'>
-                <img src={'../../../public/layer1.png'} className=' w-[8rem] h-[8rem]' />
+                <img src={'../../../layer1.png'} className=' w-[8rem] h-[8rem]' />
                 <div className=' flex flex-col justify-center items-center mt-[1.25rem]'>
                     <div className='text-[1.6rem] font-bold'>Scan Locally</div>
                     <div className='text-[1.1rem] text-center mt-2 justify-center items-center'>From our command line tool, run a couple simple commands <br /> to explore results of a scan and manage scan rules in the app.</div>

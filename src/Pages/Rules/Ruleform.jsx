@@ -65,7 +65,7 @@ export default function Ruleform() {
                             pointer-events-none"
           >
             <img
-              src={"../../../public/search.png"}
+              src={"../../../search.png"}
               className="w-[1rem] h-[1rem] "
             />
           </div>
@@ -77,7 +77,7 @@ export default function Ruleform() {
           }}
         >
           <img
-            src="../../../../public/new_project.png"
+            src="../../../../new_project.png"
             className="w-[1.875rem] h-[1.875rem]"
           ></img>
           <div className="text-[#FFF] text-[1.1rem] ml-[0.62rem] font-sem2">
@@ -152,7 +152,7 @@ export default function Ruleform() {
           </div>
           <div className="flex flex-col border justify-center items-center h-full">
             <img
-              src="../../../public/broken-cable.png"
+              src="../../../broken-cable.png"
               className="w-[8rem] h-[8rem]"
             ></img>
             <div className="font-sem2 mt-[2.5rem] text-[1.2rem]">

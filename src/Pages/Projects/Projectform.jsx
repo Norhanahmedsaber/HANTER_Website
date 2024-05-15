@@ -58,7 +58,7 @@ export default function () {
           <div className="absolute inset-y-2 left-4 pl-3  
                             flex items-center  
                             pointer-events-none">
-            <img src={'../../../public/search.png'} className='w-[1rem] h-[1rem] ' />
+            <img src={'../../../search.png'} className='w-[1rem] h-[1rem] ' />
           </div>
         </div>
         <div
@@ -68,7 +68,7 @@ export default function () {
           }}
         >
           <img
-            src="../../../../public/new_project.png"
+            src="../../../../new_project.png"
             className="w-[1.875] h-[1.875rem]"
           ></img>
           <div className="text-[#FFF] text-[1.1rem] ml-[0.62rem] font-sem2">
@@ -129,7 +129,7 @@ export default function () {
           </div>
           <div className="flex flex-col border justify-center items-center h-full">
             <img
-              src="../../../public/broken-cable.png"
+              src="../../../broken-cable.png"
               className="w-[7rem] h-[7rem]"
             ></img>
             <div className="font-sem2 mt-[2.5rem] text-[1.2rem]">

@@ -53,7 +53,7 @@ export default function SignUp() {
   }
   return (
     <div className='flex flex-col items-center justify-start h-screen'>
-        <img src={"../../../../public/logo.png"} className='w-[5.875rem] h-[5.6875rem] mt-[1.25rem]'/>
+        <img src={"../../../../logo.png"} className='w-[5.875rem] h-[5.6875rem] mt-[1.25rem]'/>
         <div className='text-[#030303] text-[1.6875rem]'> Sign up to HANTER </div>
         <div className='text-[#E10808] text-[0.625rem] w-[22.5rem] mt-[1.5rem]'>{error}</div>
       <SignupForm

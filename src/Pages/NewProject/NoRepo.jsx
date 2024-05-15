@@ -28,7 +28,7 @@ function NoRepo() {
     return (
         <div className='flex h-full w-full flex-col justify-center items-center'>
             <GithubAuth checkAuth={checkAuth} isOpen={authModal} setIsOpen={setAuthModal} />
-            <img src={'../../../public/ghost1.png'} className=' w-[calc(0.75*12.5rem)] h-[calc(0.75*12.5rem)]'/>
+            <img src={'../../../ghost1.png'} className=' w-[calc(0.75*12.5rem)] h-[calc(0.75*12.5rem)]'/>
             <div className=' flex flex-col justify-center items-center mt-[1.25rem]'>
                 <div className='text-[2rem] mt-[1.5rem]'>Your Github Account isn't Connected</div>
                 <div className='text-[1rem] mt-[1.5rem] text-center w-[62rem] justify-center items-center'>Hanter can't find any additional repositories in this account.<br/>You may need to sync your projects from Github or update which repositories Hanter’s GitHub app can access.</div>

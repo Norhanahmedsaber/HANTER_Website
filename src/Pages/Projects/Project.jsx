@@ -33,7 +33,7 @@ export default function Project({ name, lastScan, vuls, id, getProjects }) {
         }}
       >
         <img
-          src="../../../../public/delete.png"
+          src="../../../../delete.png"
           className="w-[1.25rem] h-[1.25rem] cursor-pointer"
         ></img>
       </div>
