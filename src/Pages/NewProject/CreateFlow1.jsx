@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import Repo from './Repo.JSX'
+import Repo from './Repo.jsx'
 import config from '../../../config'
 import Cookies from 'js-cookie'
 import { Navigate } from 'react-router-dom'
