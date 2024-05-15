@@ -6,25 +6,25 @@
     font-family: 'Jomolhari';
     font-style: normal;
     font-weight: normal;
-    src: local('Jomolhari'), url('./public/fonts/Jomolhari.woff') format('woff');
+    src: local('Jomolhari'), url('./fonts/Jomolhari.woff') format('woff');
 }
 @font-face {
     font-family: 'sem1';
     font-style: normal;
     font-weight: normal;
-    src: local('sem1'), url('./public/fonts/sem1.woff') format('woff');
+    src: local('sem1'), url('./fonts/sem1.woff') format('woff');
 }
 @font-face {
     font-family: 'sem2';
     font-style: normal;
     font-weight: normal;
-    src: local('sem2'), url('./public/fonts/sem2.woff2') format('woff2');
+    src: local('sem2'), url('./fonts/sem2.woff2') format('woff2');
 }
 @font-face {
     font-family: 'Next-Bravo';
     font-style: normal;
     font-weight: normal;
-    src: local('Next-Bravo'), url('./public/fonts/Next-Bravo.woff') format('woff');
+    src: local('Next-Bravo'), url('./fonts/Next-Bravo.woff') format('woff');
 }
 @layer components {
     .trans {
